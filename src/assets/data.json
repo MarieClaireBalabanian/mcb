@@ -1,0 +1,247 @@
+{
+    
+    "projects": [
+      
+      {
+        "title": "IBM Digital Experience @ the 2023 Masters",
+        "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
+        "body": "Since 2011, the Chicago Architecture Center (CAC) has produced each Open House Chicago festival. The CAC is a nonprofit cultural institution that offers tours, exhibitions, programs and events for all ages. The CAC's mission is to inspire people to discover why design matters. The CAC collaborates with community partners (such as chambers of commerce, neighborhood organizations, arts and culture organizations and historical societies) each year to present Open House Chicago. OHC is also made possible through generous support from festival sponsors, donors and government agencies.",
+        "images": [
+            {
+                "url": "/img/test/masters.png",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/test/masters.png",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/test/masters.png",
+                "alt": "",
+                "mobile": false
+            }
+        ]
+      },
+      {
+        "title": "Samson Technologies, Inc.",
+        "subtitle": "Complete Website Redsign",
+        "body": "OHC is a citywide event, with sites and events distributed throughout multiple neighborhoods, areas and select Chicago suburbs. OHC sites and neighborhoods represent the cultural diversity and dynamic history of Chicago, as well as the unique character of each community.",
+        "images": [
+            {
+                "url": "/img/test/samson.png",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/test/samson.png",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/test/samson.png",
+                "alt": "",
+                "mobile": false
+            }
+        ],
+        "website": "https://samsontech.com/"
+      },
+      {
+        "title": "Lincoln Center + New York Philharmonic",
+        "subtitle": "Permanent Digital Touchscreen Installation",
+        "body": "Open House Chicago (OHC) is a free annual festival hosted by the Chicago Architecture Center that offers behind-the-scenes access to buildings of architectural, cultural and historical significance during one weekend in October.",
+        "images": [
+            {
+                "url": "/img/test/geffen.png",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/test/geffen.png",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/test/geffen.png",
+                "alt": "",
+                "mobile": true
+            }
+        ]
+      },
+      {
+        "title": "IBM Digital Experience @ the 2022 US Open",
+        "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
+        "body": "CAC staff members curate OHC sites in accordance with multiple criteria. Site consideration and selection may also be informed by each year's festival focus and themes. Proposals for site inclusion are not generally solicited. See links in the “Stay in the Know” section above to get timely updates about the CAC's plans for OHC 2023.",
+        "images": [
+            {
+                "url": "/img/test/masters.png",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/test/masters.png",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/test/masters.png",
+                "alt": "",
+                "mobile": false
+            }
+        ]
+      },
+      
+      {
+        "title": "Chicago Architecture Association - 2023 Open House Chicago",
+        "subtitle": "PWA for Open House",
+        "body": "Divvy, Chicago's bike-sharing system, and CTA buses and trains are great modes of transit during OHC. Many neighborhoods are easily accessible by CTA. Many sites and self-guided tours are typically located within walking distance of one another. For sites and Self-guided tours not located along CTA routes, Metra train service is available. Some OHC neighborhoods have free or metered street parking.",
+        "images": [
+            {
+                "url": "/img/test/cac.png",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/test/cac.png",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/test/cac.png",
+                "alt": "",
+                "mobile": true
+            }
+        ]
+      },
+      {
+        "title": "IBM Digital Experience @ the 2022 Masters",
+        "body": "CAC staff members curate OHC sites in accordance with multiple criteria. Site consideration and selection may also be informed by each year's festival focus and themes. Proposals for site inclusion are not generally solicited. See links in the “Stay in the Know” section above to get timely updates about the CAC's plans for OHC 2023.",
+        "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
+        "images": [
+            {
+                "url": "/img/test/masters.png",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/test/masters.png",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/test/masters.png",
+                "alt": "",
+                "mobile": false
+            }
+        ]
+      },
+      {
+        "title": "Clayton Hotel - Aparium Hotel Group",
+        "subtitle": "Website Build",
+        "body": "Discover captivating events and activities at various Open House Chicago sites throughout the weekend. These experiences are designed to celebrate architecture, delve into Chicago's rich history, and showcase local businesses and organizations. Explore the offerings of each site by visiting their respective pages and viewing the 'Visitor Experience' section. You can find our complete list of sites for 2023 <a class='body-link' href='https://openhousechicago.org/about/'>here</a>.",
+        "images": [
+            {
+                "url": "/img/test/clayton.png",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/test/clayton.png",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/test/clayton.png",
+                "alt": "",
+                "mobile": false
+            }
+        ],
+        "website": "https://claytondenver.com/"
+      },
+      {
+        "title": "Surety Hotel - Aparium Hotel Group",
+        "subtitle": "Website Build",
+        "body": "CAC members receive exclusive benefits and discounts throughout OHC 2023. More information about specific discounts and benefits can be found <a class='body-link' href='https://www.architecture.org/join-give/join/membership/'>here</a>. <br> If you need a replacement membership card, please call the CAC Call Center at <a class='body-link' href='tel:+13129228687'>312.922.8687</a> or email <a class='body-link' href='mailto:membership@architecture.org'>membership@architecture.org</a>.",
+  
+        "images": [
+            {
+                "url": "/img/test/surety.png",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/test/surety.png",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/test/surety.png",
+                "alt": "",
+                "mobile": true
+            }
+        ],
+        "website": "https://suretyhotel.com/"
+    },
+      {
+        "title": "The MC Hotel - Marriott +  Aparium Hotel Group",
+        "subtitle": "Website Build",
+        "body": "OHC is part of the Open House Worldwide family of related events. Open House started in London in 1992 and launched in the United States in 2002 with Open House New York. Now, more than 50 cities around the world have adopted Open House, creating the first global architecture festival reaching more than 1 million people. Visit openhouseworldwide.org to learn more. Similar events called Doors Open are held annually in cities including Denver, Milwaukee, Minneapolis, Pittsburgh and Toronto.",
+        "images": [
+            {
+                "url": "/img/test/mc.png",
+                "alt": ""
+            },
+            {
+                "url": "/img/test/mc.png",
+                "alt": ""
+            },{
+                "url": "/img/test/mc.png",
+                "alt": ""
+            }
+        ],
+        "website": "https://themchotel.com/"
+    }
+    ],
+    "about": [
+        {
+            "title": "I would rather be in a state of total awe and reverence",
+            "img": {
+                "url":"/img/one-min.jpg"
+           }
+        },
+        {
+            "title": "...or wheelthrowing",
+            "img": {
+                "url":"/img/wheel-min.jpeg"
+           }
+        },
+        
+        {
+            "title": "...or droning",
+            "img": {
+                "url":"/img/synths-min.jpeg"
+           }
+        }
+    ],
+    "skills": [
+        "HTML5",
+        "CSS3",
+        "Sass",
+        "Responsiveness",
+        "Cross-browser Compatibility",
+        "JavaScript",
+        "WCAG",
+        "Vue.js (2+3)",
+        "Vuex",
+        "Pinia",
+        "Nuxt.js (2+3)",
+        "API Integration",
+        "JSON",
+        "Wordpress",
+        "Headless CMS",
+        "Django",
+        "Wagtail",
+        "Git + Bitbucket"
+    ]
+}
