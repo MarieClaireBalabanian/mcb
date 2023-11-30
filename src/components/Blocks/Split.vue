@@ -9,7 +9,7 @@
                         {{ project.body }}
                     </p>
                     <div class="actions" v-if="project.website">
-                        <a :href="project.website" class="button red" target="_blank" rel="noopener noreferrer">See More</a>
+                        <router-link :to="`/work/${project.slug}`" class="button red">See More</router-link>
                     </div>
                 </div>
                 <div class="translates image-wrapper grid grid-2" :class="imageTransition">
@@ -21,7 +21,7 @@
                     <h2 class="h2 mb-20">{{ project.subtitle }}</h2>
                     <p class="paragraph mb-40">{{ project.body }}</p>
                     <div class="actions" v-if="project.website">
-                        <a :href="project.website" class="button red" target="_blank" rel="noopener noreferrer">See More</a>
+                        <router-link :to="`/work/${project.slug}`" class="button red">See More</router-link>
                     </div>
                 </div>
             </div>

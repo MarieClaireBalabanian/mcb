@@ -30,7 +30,7 @@ body {
   font-size: 3.2rem;
   color: $black;
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: $black;
 
   &.blue {
@@ -58,10 +58,37 @@ body {
 
 }
 
-
 .paragraph {
   font-size: 1rem;
   line-height: 1.7rem;
+}
+
+.formatted {
+  
+  * + ul {
+    margin-top: 20px;
+  }
+  ul {
+    padding-left: 20px;
+    li {
+      font-size: 1rem;
+      margin-bottom: 1em;
+      line-height: 1.2em;
+      position: relative;
+      padding-left: 15px;
+      &::before {
+        position: absolute;
+        content: '';
+        top: .4em;
+        left: 0;
+        width: .3rem;
+        height: .3rem;
+        background: $black;
+        border-radius: 50%;
+      }
+
+    }
+  }
 }
 
 .text-blue {
@@ -73,4 +100,9 @@ body {
 
 .text-red {
   color: $red;
+}
+
+.bold {
+  font-weight: 700;
+  letter-spacing: .03em;
 }

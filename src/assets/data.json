@@ -3,6 +3,7 @@
     "projects": [
       
       {
+        "slug": "ibm-masters-2023",
         "title": "IBM Digital Experience @ the 2023 Masters",
         "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
@@ -22,9 +23,11 @@
                 "alt": "",
                 "mobile": false
             }
-        ]
+        ],
+        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
       },
       {
+        "slug": "samson",
         "title": "Samson Technologies, Inc.",
         "subtitle": "Complete Website Redsign",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
@@ -45,9 +48,12 @@
                 "mobile": false
             }
         ],
-        "website": "https://samsontech.com/"
+        "website": "https://samsontech.com/",
+        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+
       },
       {
+        "slug": "lincoln-center",
         "title": "Lincoln Center + New York Philharmonic",
         "subtitle": "Permanent Digital Touchscreen Installation",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
@@ -67,9 +73,12 @@
                 "alt": "",
                 "mobile": true
             }
-        ]
+        ],
+        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+
       },
       {
+        "slug": "ibm-usopen-2022",
         "title": "IBM Digital Experience @ the 2022 US Open",
         "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
@@ -89,10 +98,13 @@
                 "alt": "",
                 "mobile": false
             }
-        ]
+        ],
+        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+
       },
       
       {
+        "slug": "open-house-chicago-2023",
         "title": "Chicago Architecture Association - 2023 Open House Chicago",
         "subtitle": "PWA for Open House",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
@@ -112,9 +124,12 @@
                 "alt": "",
                 "mobile": true
             }
-        ]
+        ],
+        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+
       },
       {
+        "slug": "ibm-masters-2022",
         "title": "IBM Digital Experience @ the 2022 Masters",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
@@ -134,32 +149,13 @@
                 "alt": "",
                 "mobile": false
             }
-        ]
-      },
-      {
-        "title": "Clayton Hotel - Aparium Hotel Group",
-        "subtitle": "Website Build",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-        "images": [
-            {
-                "url": "/img/test/clayton.png",
-                "alt": "",
-                "mobile": false
-            },
-            {
-                "url": "/img/test/clayton.png",
-                "alt": "",
-                "mobile": false
-            },
-            {
-                "url": "/img/test/clayton.png",
-                "alt": "",
-                "mobile": false
-            }
         ],
-        "website": "https://claytondenver.com/"
+        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+
       },
+    
       {
+        "slug": "surety-hotel",
         "title": "Surety Hotel - Aparium Hotel Group",
         "subtitle": "Website Build",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
@@ -181,9 +177,12 @@
                 "mobile": true
             }
         ],
-        "website": "https://suretyhotel.com/"
+        "website": "https://suretyhotel.com/",
+        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+
     },
       {
+        "slug": "mc-hotel",
         "title": "The MC Hotel - Marriott +  Aparium Hotel Group",
         "subtitle": "Website Build",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
@@ -200,7 +199,9 @@
                 "alt": ""
             }
         ],
-        "website": "https://themchotel.com/"
+        "website": "https://themchotel.com/",
+        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+
     }
     ],
     "about": [

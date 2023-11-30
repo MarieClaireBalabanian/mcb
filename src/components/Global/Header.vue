@@ -2,10 +2,10 @@
     <header class="global-header" :class="{open: open }" id="header">
         <div class="container">
             <GlobalFocusTrap :enabled="open" class="trap-wrapper">
-                <nav class="items-container" @keyup.esc="closeNav" aria-label="Main Navigation">
-                    <a href="#top" class="logo" @click.prevent="scroll('top')">
+                <nav class="items-container" @keyup.esc="closeNav" aria-label="Main N avigation">
+                    <router-link to="/" class="logo" @click.prevent="scroll('top')" aria-label="MCB Homepage">
                         <span>MCB</span>
-                    </a>
+                    </router-link>
 
                     <div class="button-wrapper">
                         <button id="menu-toggle" aria-haspopup="true" class="hamburger" ref="hamburger"
@@ -21,27 +21,31 @@
                                     stroke-linecap="round" />
                             </svg>
                         </button>
-                        <transition name="radiate">
+                        <!-- <transition name="radiate">
                             <div class="circle" :class="{ 'show' : open, 'hide': !open }"></div>
-                        </transition>
+                        </transition> -->
                     </div>
 
+                    
                     <transition name="showItems">
-                        <div class="items-wrapper" v-show="open">
+                        <div class="bg fixed" v-show="open"></div>
+                    </transition>
+                    
+                        <div class="items-wrapper fixed" v-show="open">
                             <div class="container">
                                 <div class="inner-menu" tabindex="-1" id="inner-menu" aria-label="Expanded Navigation">
                                     <ul class="items">
                                         <li v-for="(item, index) in menu" :key="`nav-${index}`">
-                                            <a @click.prevent="scroll(item.slug)" :href="`#${item.slug}`" ref="topLevel">
+                                            <router-link :to="item.slug" ref="topLevel">
                                                 {{ item.title }}
-                                            </a>
+                                            </router-link>
                                         </li>
                                     </ul>
 
                                 </div>
                             </div>
                         </div>
-                    </transition>
+                   
                 </nav>
             </GlobalFocusTrap>
         </div>
@@ -50,22 +54,32 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
+import {useRoute} from 'vue-router'
+
+const route = useRoute();
 
     import { scrollTo } from '../../composables/scrollTo.js'
 
     const open = ref(false)
 
     const menu = [
-        { title: 'Work', slug: 'work' },
-        { title: 'About', slug: 'about' },
-        { title: 'Contact', slug: 'contact' },
+        { title: 'Work', slug: '/work' },
+        { title: 'About', slug: '/about' },
     ]
 
     const hamburgerSR = computed(() => {
         return open.value ? "Close Navigation" : "Open Navigation";
     })
 
+
+    watch(
+    () => route.path,
+    async (to) => {
+      closeNav()
+    },
+    { deep: true }
+  );
 
 
     const toggleNav = () => {
@@ -206,13 +220,16 @@ import { ref, computed } from 'vue'
             padding-top: 15px;
         }
 
-        .items-wrapper {
+        .fixed {
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             height: 100vh;
+        }
+
+        .items-wrapper {
             overflow: auto;
             color: $white;
             padding-top: $header-height;
@@ -231,6 +248,15 @@ import { ref, computed } from 'vue'
                 margin-bottom: 2em;
             }
         }
+
+
+
+
+            .bg {
+                background: black;
+                    /* opacity: 0;
+                    transition: .4s ease; */
+            }
 
 
         &.open {
@@ -260,24 +286,36 @@ import { ref, computed } from 'vue'
                     }
                 }
             }
+
+            /* .bg {
+                    transform: scaleX(1);
+                    opacity: 1;
+                } */
         }
 
         .showItems-enter-active {
-            transition: transform .4s ease-out .65s, opacity .6s ease-out .69s;
+            transition: transform .4s ease-out, opacity .2s ease-out;
         }
 
         .showItems-leave-active {
-            transition: .2s ease-out;
+            transition: transform .3s ease-out, opacity .5s ease-out;
         }
         
-        .showItems-enter-from, .showItems-leave-to {
-            opacity: 0;
-            transform: translate3d(0,200px,0);
+        .showItems-enter-from {
+            /* opacity: 0; */
+            transform: scale(0, 1);
+        }
+
+        .showItems-leave-to {
+            /* opacity: 0; */
+            transform: scale(0, 1);
         }
         .showItems-enter-to, .showItems-leave {
             opacity: 1;
-            transform: translate3d(0,0,0);
+            transform: scale(1);
         }
+
+      
 
         @keyframes header-show {
             100% {
