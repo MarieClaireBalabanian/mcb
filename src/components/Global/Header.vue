@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, nextTick } from 'vue'
 
     import { scrollTo } from '../../composables/scrollTo.js'
 
@@ -102,21 +102,19 @@ import { ref, computed } from 'vue'
 </script>
 
 <style lang="scss">
-    $header-height: 60px;
-
     .global-header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
-        z-index: 99998;
+        z-index: 999;
         transition: 300ms ease;
         transform: translateY(-100%);
         opacity: 0;
         animation: .6s header-show 2s forwards ease;
-        background: rgba(white, .96);
+        background: rgba($white, .9);
 
-        >.container {
+        > .container {
             height: $header-height;
         }
 

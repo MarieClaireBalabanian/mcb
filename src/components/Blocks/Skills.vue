@@ -1,5 +1,5 @@
 <template>
-    <section class="block-image-callout-animated" ref="blockRef">
+    <section class="block-skills" ref="blockRef">
        
         <h2 class="h2 text-center mb-80" :style="opacity" :class="{ white: progress >= .7}">Skills</h2>
 

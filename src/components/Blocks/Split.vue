@@ -1,27 +1,26 @@
 <template>
-    <section class="block-split-text-image" :class="alignment" ref="blockRef">
+    <section class="block-split-text-image" :class="alignment" ref="blockRef" tabindex="-1">
         <div class="container">
-            <div class="h1 mb-20">{{ project.title }}</div>
+            <h3 class="h2 mb-20">{{ project.title }}</h3>
             <div class="content">
                 <div class="translates copy desktop-only" :class="copyTransition">
-                    <h2 class="h2 mb-20">{{ project.subtitle }}</h2>
+                    <h4 class="h3 mb-20">{{ project.subtitle }}</h4>
                     <p class="paragraph mb-20">
                         {{ project.body }}
                     </p>
-                    <div class="actions" v-if="project.website">
-                        <a :href="project.website" class="button red" target="_blank" rel="noopener noreferrer">See More</a>
+                    <div class="actions" v-if="isDesktop && alignment === 'image-right'">
+                        <GlobalModal :project="project"/>
                     </div>
                 </div>
-                <div class="translates image-wrapper grid grid-2" :class="imageTransition">
-                    <!-- <GlobalCarousel :photos="photos"/> -->
-                    <img v-for="image in project.images" :src="image.url" :alt="image.alt"
-                        :class="{ 'full': !image.mobile}" />
+                <div v-if="images" class="translates image-wrapper grid grid-2" :class="imageTransition">
+                    <img v-for="image in images" :src="image.url" :alt="image.alt"
+                        :class="{ 'full': !project.portrait}" />
                 </div>
                 <div class="translates copy" :class="copyTransition">
-                    <h2 class="h2 mb-20">{{ project.subtitle }}</h2>
+                    <h4 class="h3 mb-20">{{ project.subtitle }}</h4>
                     <p class="paragraph mb-40">{{ project.body }}</p>
-                    <div class="actions" v-if="project.website">
-                        <a :href="project.website" class="button red" target="_blank" rel="noopener noreferrer">See More</a>
+                    <div class="actions" v-if="(isDesktop && alignment !== 'image-right') || !isDesktop">
+                        <GlobalModal :project="project"/>
                     </div>
                 </div>
             </div>
@@ -31,7 +30,9 @@
 </template>
 
 <script setup>
-    import { ref, reactive, computed, toRefs, onMounted } from 'vue'
+    import { ref, reactive, computed, toRefs, onMounted } from 'vue';
+    import { useWindowStore } from '@/stores/window';
+    const windowStore = useWindowStore();
 
     const props = defineProps({
         project: {
@@ -42,10 +43,19 @@
         }
     })
 
-    const { index } = toRefs(props)
+
+    const { project, index } = toRefs(props)
 
     const blockRef = ref(null)
     const observer = ref(null)
+
+    const images = computed(() => {
+        return project?.value.images.slice(0, 2);
+    });
+
+    const isDesktop = computed(() => {
+        return windowStore.isDesktop;
+    });
 
     const alignment = computed(() => {
         return index.value % 2 ? 'image-right' : 'image-left';
@@ -108,7 +118,6 @@
         }
 
         .image-wrapper {
-            margin-left: -20px;
             grid-gap: 15px;
 
             .full {
@@ -140,12 +149,12 @@
             }
 
             .image-wrapper {
-                width: 45%;
+                width: 55%;
                 margin: unset;
             }
 
             .copy {
-                width: 55%;
+                width: 45%;
                 padding: 40px 5% 0 5%;
             }
 

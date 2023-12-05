@@ -8,21 +8,28 @@
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/masters2023-player.jpg",
                 "alt": "",
                 "mobile": false
             },
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/masters2023-whitedogwood.jpg",
                 "alt": "",
                 "mobile": false
             },
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/masters2023-course.jpg",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/projects/masters2023-playerstowatch.jpg",
                 "alt": "",
                 "mobile": false
             }
-        ]
+        ],
+        "video": "/videos/masters2023.mp4",
+        "tech": ["Nuxt 2", "IBM APIs", "Websockets"]
       },
       {
         "title": "Samson Technologies, Inc.",
@@ -30,22 +37,44 @@
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
             {
-                "url": "/img/test/samson.png",
+                "url": "/img/projects/samson-desktop-homepage-crop.jpg",
                 "alt": "",
                 "mobile": true
             },
             {
-                "url": "/img/test/samson.png",
+                "url": "/img/projects/samson-desktop-product-crop.jpg",
                 "alt": "",
                 "mobile": true
-            },
-            {
-                "url": "/img/test/samson.png",
-                "alt": "",
-                "mobile": false
             }
         ],
-        "website": "https://samsontech.com/"
+        "website": "https://samsontech.com/",
+        "tech": ["Nuxt 2", "Graphql", "Django", "Wagtail CMS"]
+
+      },
+
+      {
+        "title": "Open House Chicago 2023 - Chicago Architecture Association",
+        "subtitle": "Permanent Digital Touchscreen Installation",
+        "body": "Every October, the Chicago Architecture Center is proud to host Open House Chicago—a free public festival that offers self-guided history and architecture trails throughout Chicago, talks and programming, and behind-the-scenes access to architecturally, historically and culturally significant sites across the city. Open House Chicago remains one of the largest events of its kind in the world.",
+        "images": [
+            {
+                "url": "/img/projects/cac-home.jpg",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/projects/cac-sites.jpg",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/projects/cac-tour.jpg",
+                "alt": "",
+                "mobile": true
+            }
+        ],
+        "portrait": true,
+        "tech": ["Nuxt 3", "Airtable Web API"]
       },
       {
         "title": "Lincoln Center + New York Philharmonic",
@@ -53,111 +82,73 @@
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
             {
-                "url": "/img/test/geffen.png",
+                "url": "/img/projects/geffen-explore.jpg",
                 "alt": "",
                 "mobile": true
             },
             {
-                "url": "/img/test/geffen.png",
-                "alt": "",
-                "mobile": true
-            },
-            {
-                "url": "/img/test/geffen.png",
+                "url": "/img/projects/geffen-composer.jpg",
                 "alt": "",
                 "mobile": true
             }
-        ]
+        ],
+        "portrait": true,
+        "tech": ["Nuxt 2", "Django CMS"]
       },
+
       {
         "title": "IBM Digital Experience @ the 2022 US Open",
         "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/usopen-1.jpg",
                 "alt": "",
                 "mobile": false
             },
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/usopen2.jpg",
                 "alt": "",
                 "mobile": false
             },
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/usopen3.jpg",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/projects/usopen4.jpg",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/projects/usopen5.jpg",
                 "alt": "",
                 "mobile": false
             }
-        ]
+        ],
+        "tech": ["Nuxt 2", "IBM APIs", "Websockets"]
+
       },
-      
-      {
-        "title": "Chicago Architecture Association - 2023 Open House Chicago",
-        "subtitle": "PWA for Open House",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-        "images": [
-            {
-                "url": "/img/test/cac.png",
-                "alt": "",
-                "mobile": true
-            },
-            {
-                "url": "/img/test/cac.png",
-                "alt": "",
-                "mobile": true
-            },
-            {
-                "url": "/img/test/cac.png",
-                "alt": "",
-                "mobile": true
-            }
-        ]
-      },
+    
       {
         "title": "IBM Digital Experience @ the 2022 Masters",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
         "images": [
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/masters-2022-player.jpg",
                 "alt": "",
                 "mobile": false
             },
             {
-                "url": "/img/test/masters.png",
-                "alt": "",
-                "mobile": false
-            },
-            {
-                "url": "/img/test/masters.png",
-                "alt": "",
-                "mobile": false
-            }
-        ]
-      },
-      {
-        "title": "Clayton Hotel - Aparium Hotel Group",
-        "subtitle": "Website Build",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-        "images": [
-            {
-                "url": "/img/test/clayton.png",
-                "alt": "",
-                "mobile": false
-            },
-            {
-                "url": "/img/test/clayton.png",
-                "alt": "",
-                "mobile": false
-            },
-            {
-                "url": "/img/test/clayton.png",
+                "url": "/img/projects/masters-2022-course.jpg",
                 "alt": "",
                 "mobile": false
             }
         ],
-        "website": "https://claytondenver.com/"
+        "tech": ["Nuxt 2", "IBM APIs", "Websockets"]
+
       },
       {
         "title": "Surety Hotel - Aparium Hotel Group",
@@ -166,12 +157,12 @@
   
         "images": [
             {
-                "url": "/img/test/surety.png",
+                "url": "/img/projects/surety-desktop-homepage-crop.jpg",
                 "alt": "",
                 "mobile": true
             },
             {
-                "url": "/img/test/surety.png",
+                "url": "/img/projects/surety-desktop-tavern-crop.jpg",
                 "alt": "",
                 "mobile": true
             },
@@ -181,7 +172,9 @@
                 "mobile": true
             }
         ],
-        "website": "https://suretyhotel.com/"
+        "website": "https://suretyhotel.com/",
+        "tech": ["Vue 2", "Wordpress"]
+
     },
       {
         "title": "The MC Hotel - Marriott +  Aparium Hotel Group",
@@ -189,18 +182,13 @@
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
             {
-                "url": "/img/test/mc.png",
-                "alt": ""
-            },
-            {
-                "url": "/img/test/mc.png",
-                "alt": ""
-            },{
-                "url": "/img/test/mc.png",
+                "url": "/img/projects/mc-desktop-homepage-crop.jpg",
                 "alt": ""
             }
+           
         ],
-        "website": "https://themchotel.com/"
+        "website": "https://themchotel.com/",
+        "tech": ["Vue 2", "Wordpress"]
     }
     ],
     "about": [

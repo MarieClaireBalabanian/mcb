@@ -1,34 +1,32 @@
 <template>
     <section class="carousel-component">
-      <div class="height-container">
         <div class="carousel-inner" ref="carouselWrapperRef">
-          <div v-for="(item, index) in photos" :key="item" class="carousel-item" ref="slideRef" :data-num="index">
+          <div v-for="(item, index) in images" :key="item" class="carousel-item" ref="slideRef" :data-num="index">
             <img :src="item.url" :alt="item.alt" :loading="index === 0 ? 'eager' : 'lazy'" />
           </div>
         </div>
   
-        <ul v-if="photos && photos.length > 1" class="dots">
-          <li v-for="(item, index) in photos" :key="`${item}-dot`">
+        <ul v-if="images && images.length > 1" class="dots">
+          <li v-for="(item, index) in images" :key="`${item}-dot`">
             <button @click="navigateTo(index)">
               <span :class="{ active: active.indexOf(index) !== -1 }"></span>
             </button>
           </li>
         </ul>
-      </div>
 
     </section>
   </template>
   
   <script setup>
-import { ref, reactive, computed, toRefs, onMounted } from 'vue'
+import { ref, reactive, computed, toRefs, onMounted, onBeforeUnmount } from 'vue'
 
     const props = defineProps({
-      photos: {
+      images: {
         type: Array,
       },
     });
   
-    const { photos } = toRefs(props);
+    const { images } = toRefs(props);
   
     // Variables
     const active = ref([0]);
@@ -62,6 +60,12 @@ import { ref, reactive, computed, toRefs, onMounted } from 'vue'
         observer.value.observe(item);
       });
     };
+
+    const navigateTo = (i) => {
+            const diff = i - active.value[0];
+            let scroll = Math.floor( carouselWrapperRef.value.clientWidth ) * diff;
+            carouselWrapperRef.value.scrollBy({ left: scroll, behavior: 'smooth'})
+        }
   
     onMounted(() => {
       setUpIntersectionObserver();
@@ -83,10 +87,10 @@ import { ref, reactive, computed, toRefs, onMounted } from 'vue'
       position: relative;
   
       .height-container {
-        height: 360px;
+        /* height: 360px; */
         position: relative;
   
-        &::after {
+        /* &::after {
           display: block;
           content: '';
           position: absolute;
@@ -97,7 +101,7 @@ import { ref, reactive, computed, toRefs, onMounted } from 'vue'
           z-index: 1;
           height: 72px;
           background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.56) 58.85%, rgba(0, 0, 0, 0) 100%);
-        }
+        } */
       }
   
       .carousel-inner {
@@ -113,7 +117,6 @@ import { ref, reactive, computed, toRefs, onMounted } from 'vue'
         scrollbar-width: none;
         align-items: flex-start;
         margin: 0;
-        height: 360px;
   
         &::-webkit-scrollbar {
           display: none;
@@ -122,42 +125,45 @@ import { ref, reactive, computed, toRefs, onMounted } from 'vue'
         .carousel-item {
           flex: 0 0 100%;
           width: 100%;
-          height: 100%;
+          /* height: auto; */
           scroll-snap-align: start;
           position: relative;
   
           img {
             height: 100%;
             width: 100%;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
+            max-height: 600px;
           }
         }
       }
   
       .dots {
-        position: absolute;
-        z-index: 3;
-        left: 0;
-        right: 0;
-        bottom: 18px;
+        margin-top: 18px;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         button {
-          width: 15px;
-          height: 15px;
+          width: 24px;
+          height: 24px;
           display: flex;
           flex-direction: column;
+          margin: 0 2px;
           span {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             display: block;
             margin: auto;
             border-radius: 50%;
-            background: $gray-light-2;
+            background: $white;
+            border: 1px solid $prussian-blue;
             &.active {
-              background: $white;
+              background: $prussian-blue;
+            }
+            &:hover, &:focus {
+              background: $red;
+              border-color: $red;
             }
           }
         }

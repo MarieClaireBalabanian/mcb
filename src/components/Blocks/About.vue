@@ -1,5 +1,5 @@
 <template>
-    <section class="block-full-screen-fade">
+    <section class="block-full-screen-fade" tabindex="-1">
         <div class="wrapper">
 
 
