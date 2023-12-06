@@ -76,6 +76,7 @@ import { ref, reactive, computed, toRefs, onMounted, watch } from 'vue'
     .block-hero {
         position: relative;
         min-height: 100vh;
+        background: black;
 
         .shapes {
             position: absolute;
@@ -88,7 +89,7 @@ import { ref, reactive, computed, toRefs, onMounted, watch } from 'vue'
                 position: absolute;
                 display: inline-block;
                 content: '';
-                background: $black;
+                background: white;
                 width: 100%;
                 top: 0;
                 height: 100%;
@@ -118,7 +119,7 @@ import { ref, reactive, computed, toRefs, onMounted, watch } from 'vue'
         }
 
         .h1 {
-            color: white;
+            color: black;
             &.hide {
                 opacity: 0;
                 transform: translateY(calc(-50% - 100px));
@@ -126,7 +127,7 @@ import { ref, reactive, computed, toRefs, onMounted, watch } from 'vue'
         }
 
         .h2 {
-            color: black;
+            color: white;
             opacity: 0;
             transform: translateY(calc(-50% + 100px));
             &.show {

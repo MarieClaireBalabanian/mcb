@@ -24,16 +24,26 @@
                                         </li>
                                     </ul>
                                 </div>
+
+                                <div class="company mb-40" v-if="project.company">
+                                    <p class="paragraph"><u>THE CLIENT:</u></p>
+                                    <p class="paragraph">{{ project.company }}</p>
+                                </div>
+
+                                <div class="company mb-80" v-if="project.description">
+                                    <p class="paragraph"><u>THE PROJECT:</u></p>
+
+                                    <p class="paragraph">{{ project.description }}</p>
+                                </div>
     
                                 <GlobalCarousel class="mb-80" :images="project.images" />
 
 
                                 <div class="video-container mb-80" v-if="project.video">
-                                    <p class="paragraph">Short snippet of the presentation</p>
-
                                     <video playsinline muted loop controls>
                                         <source :src="project.video" type="video/mp4">
                                     </video>
+                                    <p class="paragraph">Short snippet of the presentation</p>
                                 </div>
 
                                 <p class="paragraph">{{ project.body }}</p>
@@ -70,7 +80,7 @@
             app.style.pointerEvents = 'none';
             app.setAttribute('aria-hidden', true);
             nextTick(() => {
-                // modalRef?.value.focus();
+                if (modalRef?.value) modalRef.value.focus();
             });
 
         } else {
@@ -78,7 +88,7 @@
             app.style.pointerEvents = 'auto';
             app.setAttribute('aria-hidden', false);
             nextTick(() => {
-                triggerRef?.value.focus();
+                if (triggerRef?.value) modalRef.value.focus();
             })
         }
     })
@@ -167,11 +177,6 @@
 
         video {
             width: 100%;
-        }
-
-        .paragraph {
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .tech {

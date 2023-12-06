@@ -5,13 +5,13 @@
       <main id="main">
         <BlocksHero id="top"/>
         <section class="work" id="work" tabindex="-1">
-          <h2 class="h1 work-header container">WORK</h2>
+          <h2 class="h2 work-header container text-right">Work</h2>
             <BlocksSplit v-for="(project, index) in pageData.projects" 
                 :project="project"
                 :index="index" />
         </section>
-       
-        <!-- <BlocksAbout :slides="pageData.about" id="about"/> -->
+        <h2 class="h2 work-header container">About Me</h2>
+        <BlocksAbout :slides="pageData.about" id="about"/>
       </main>
     </article>
     <GlobalFooter />
@@ -27,6 +27,7 @@
   import BlocksSkills from "./components/Blocks/Skills.vue";
   import BlocksAbout from "./components/Blocks/About.vue";
 
+
   import { useWindowStore } from './stores/window';
   import { onMounted } from 'vue'
   import pageData from './assets/data.json';
@@ -36,7 +37,7 @@
       windowStore.scrollTop = window.scrollY;
   };
   const resize = () => {
-      windowStore.isDesktop = window.innerWidth >= 1024;
+      windowStore.isDesktop = window.innerWidth >= 768;
   };
   onMounted(() => {
       scroll();
@@ -51,13 +52,7 @@
 <style lang="scss">
 
   .work-header {
-    margin: 2em auto -.25em;
-    font-weight: 700;
-    letter-spacing: .7em;
+    margin: 3em auto -.26em;
     /* transform: skew(-0.01turn, 0); */
-    text-align: right;
-
-
-
   }
 </style>

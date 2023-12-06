@@ -3,7 +3,7 @@
     "projects": [
       
       {
-        "title": "IBM Digital Experience @ the 2023 Masters",
+        "title": "IBM Digital Experience Showcase @ the 2023 Masters",
         "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
@@ -29,7 +29,8 @@
             }
         ],
         "video": "/videos/masters2023.mp4",
-        "tech": ["Nuxt 2", "IBM APIs", "Websockets"]
+        "tech": ["Nuxt 2", "IBM APIs", "Websockets"],
+        "company": "IBM's involvement in the Masters Tournament primarily revolves around providing innovative technology solutions to enhance the viewing experience for both on-site spectators and global audiences. Watson is a powerful artificial intelligence (AI) system developed by IBM (International Business Machines Corporation). IBM Watson is designed to process and analyze large volumes of data, understand natural language, and provide insights and answers to complex questions."
       },
       {
         "title": "Samson Technologies, Inc.",
@@ -48,14 +49,15 @@
             }
         ],
         "website": "https://samsontech.com/",
-        "tech": ["Nuxt 2", "Graphql", "Django", "Wagtail CMS"]
+        "tech": ["Nuxt 2", "Graphql", "Django", "Wagtail CMS"],
+        "company": "Samson Technologies, a subsidiary of Sam Ash Music, stands at the forefront of innovation, dedicated to crafting cutting-edge audio solutions that resonate with musicians, audio professionals, and enthusiasts alike."
 
       },
 
       {
-        "title": "Open House Chicago 2023 - Chicago Architecture Association",
-        "subtitle": "Permanent Digital Touchscreen Installation",
-        "body": "Every October, the Chicago Architecture Center is proud to host Open House Chicago—a free public festival that offers self-guided history and architecture trails throughout Chicago, talks and programming, and behind-the-scenes access to architecturally, historically and culturally significant sites across the city. Open House Chicago remains one of the largest events of its kind in the world.",
+        "title": "Open House Chicago 2023 - Chicago Architecture Center",
+        "subtitle": "The Official Mobile App of OHC 2023",
+        "body": "",
         "images": [
             {
                 "url": "/img/projects/cac-home.jpg",
@@ -74,7 +76,9 @@
             }
         ],
         "portrait": true,
-        "tech": ["Nuxt 3", "Airtable Web API"]
+        "company": "The Chicago Architecture Center (CAC) stands as a distinguished institution committed to fostering widespread comprehension and admiration for architecture and the built environment, with a special emphasis on the captivating city of Chicago.",
+        "tech": ["Nuxt 3", "Airtable Web API"],
+        "description": "Every October, the Chicago Architecture Center is proud to host Open House Chicago—a free public festival that offers self-guided history and architecture trails throughout Chicago, talks and programming, and behind-the-scenes access to architecturally, historically and culturally significant sites across the city. Open House Chicago remains one of the largest events of its kind in the world. Such apps typically provide users with essential information about the event, including a list of participating buildings, their locations, architectural details, and any special programming or events associated with them. The app may also feature interactive maps, itineraries, and tools to help users plan their visits and make the most of the Open House Chicago experience. Additionally, users might find features for favoriting or bookmarking buildings they are interested in, receiving notifications about upcoming events, and accessing real-time updates."
       },
       {
         "title": "Lincoln Center + New York Philharmonic",
@@ -93,11 +97,12 @@
             }
         ],
         "portrait": true,
+        "company": "David Geffen Hall is a prominent concert hall located in Lincoln Center for the Performing Arts in New York City. It is one of the major venues for classical music performances in the city. The hall is home to the New York Philharmonic, one of the leading orchestras in the United States.",
         "tech": ["Nuxt 2", "Django CMS"]
       },
 
       {
-        "title": "IBM Digital Experience @ the 2022 US Open",
+        "title": "IBM Digital Experience Showcase @ the 2022 US Open",
         "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
@@ -127,12 +132,14 @@
                 "mobile": false
             }
         ],
-        "tech": ["Nuxt 2", "IBM APIs", "Websockets"]
+        "tech": ["Nuxt 2", "IBM APIs", "Websockets"],
+        "company": "IBM's involvement in the Masters Tournament primarily revolves around providing innovative technology solutions to enhance the viewing experience for both on-site spectators and global audiences. Watson is a powerful artificial intelligence (AI) system developed by IBM (International Business Machines Corporation). IBM Watson is designed to process and analyze large volumes of data, understand natural language, and provide insights and answers to complex questions."
+
 
       },
     
       {
-        "title": "IBM Digital Experience @ the 2022 Masters",
+        "title": "IBM Digital Experience Showcase @ the 2022 Masters",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
         "images": [
@@ -188,29 +195,47 @@
            
         ],
         "website": "https://themchotel.com/",
-        "tech": ["Vue 2", "Wordpress"]
+        "tech": ["Vue 2", "Wordpress"],
+        "company": "The MC Hotel, part of the Marriott Autograph Collection, is a boutique hotel located in Montclair, New Jersey."
     }
     ],
     "about": [
         {
-            "title": "I would rather be in a state of total awe and reverence",
+            "title": "Oh hello there.",
             "img": {
                 "url":"/img/one-min.jpg"
            }
         },
         {
-            "title": "...or wheelthrowing",
+            "title": "You can call me MC.",
             "img": {
-                "url":"/img/wheel-min.jpeg"
+                "url":"/img/one-min.jpg"
            }
         },
-        
         {
-            "title": "...or droning",
+            "title": "I like to make things.",
             "img": {
-                "url":"/img/synths-min.jpeg"
+                "url":"/img/one-min.jpg"
            }
-        }
+        },
+        {
+            "title": "I've been devving for over five years.",
+            "img": {
+                "url":"/img/one-min.jpg"
+           }
+        },
+        {
+            "title": "Bit of an analog kid n a digital world.",
+            "img": {
+                "url":"/img/one-min.jpg"
+           }
+        },
+        {
+            "title": "Besides websites, I make music, pottery, and memories in the natural world.",
+            "img": {
+                "url":"/img/one-min.jpg"
+           }
+        }  
     ],
     "skills": [
         "HTML5",

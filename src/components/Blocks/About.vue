@@ -5,15 +5,15 @@
 
             <div class="image-carousel">
                 <div class="image-container">
-             
+
 
                     <div class="global-image cover">
                         <transition name="fade">
-                        <img :src="currentImage.url" :alt="currentImage.alt" :key="currentImage.url" />
-                    </transition>
+                            <img src="/img/mc.jpeg" :alt="currentImage.alt" :key="currentImage.url" />
+                        </transition>
 
                     </div>
-             
+
                 </div>
             </div>
 
@@ -21,9 +21,9 @@
 
             <div class="container">
                 <div class="content">
-                    <div :data-id="index" v-for="(item, index) in slides" class="item" ref="slidesRef">
-                        <div class="item-inner">
-                            <h3 v-if="item.title" class="h3">{{ item.title }}</h3>
+                    <div :data-id="index" v-for="(item, index) in slides" class="item">
+                        <div class="item-inner" ref="slidesRef">
+                            <h3 v-if="item.title" class="h2">{{ item.title }}</h3>
                             <div v-if="item.body" class="copy subhead-4" v-html="item.body"></div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
 
 
 <script setup>
-import { ref, reactive, computed, toRefs, onMounted } from 'vue'
+    import { ref, reactive, computed, toRefs, onMounted } from 'vue'
 
     const props = defineProps({
         slides: Array,
@@ -53,7 +53,9 @@ import { ref, reactive, computed, toRefs, onMounted } from 'vue'
         const arr = slides.value.map((el) => {
             return el.img;
         })
-        return arr[currentIndex.value];
+
+        // return arr[currentIndex.value];
+        return slides.value[1].img
     })
 
 
@@ -63,7 +65,9 @@ import { ref, reactive, computed, toRefs, onMounted } from 'vue'
                 const current = parseInt(entry.target.getAttribute('data-id'), 10)
 
                 if (entry.isIntersecting) {
-                    currentIndex.value = current
+                    entry.target.classList.add('showing');
+                } else {
+
                 }
             })
         })
@@ -75,70 +79,110 @@ import { ref, reactive, computed, toRefs, onMounted } from 'vue'
 
 
     onMounted(() => {
-            initObserver();
+        initObserver();
     })
 
 </script>
 
 
 <style lang="scss">
-.block-full-screen-fade {
-	position: relative;
-    min-height: 100vh;
-
-	.image-carousel {
-		position: absolute;
-		inset: 0 0 0 0;
+    .block-full-screen-fade {
+        position: relative;
         min-height: 100vh;
 
-	}
-	
-	.image-container {
-		position: sticky;
-		top: 0;
-		width: 100vw;
-		height: 100vh;
-	}
+        .image-carousel {
+            position: absolute;
+            inset: 0 0 0 0;
+            min-height: 100vh;
 
-	.global-image, img {
-		position: absolute;
-		inset: 0 0 0 0;
-		object-fit: cover;
-		object-position: center;
-		z-index: 1;
-	}
+        }
 
-	.content {
-		z-index: 5;
-		position: relative;
-	}
+        .image-container {
+            position: sticky;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            filter: grayscale(100%);
+            background: rgba($white, .7);
 
-	.item {
-		min-height: 100vh;
-		padding: 70vh 0;
+            
+        }
 
-		.item-inner {
-			padding: 48px;
-			max-width: 608px;
-			background-color: white;
-			position: relative;
-			overflow: hidden;
-			clip-path: polygon(5% 8%, 5% 0, 100% 0, 100% 93%, 85% 93%, 85% 100%, 0 100%, 0 8%);
-				margin-left: auto;
-		}
-	}
+        .global-image,
+        img {
+            position: absolute;
+            inset: 0 0 0 0;
+            object-fit: cover;
+            object-position: center;
+            z-index: 1;
+            mix-blend-mode: screen;
 
-	.copy  {
-		margin-top: 16px;
-	}
+        }
 
-	.buttons {
-		margin-top: 8px;
-		.button.small {
-			margin: 8px 16px 8px 0;
-			padding: 7px 24px;
-		}
-	}
-}
+        .content {
+            z-index: 5;
+            position: relative;
+            padding: 50vh 0;
+        }
 
+        .item {
+            min-height: 100vh;
+            padding: 30vh 0;
+
+            &:nth-child(odd) {
+                .item-inner {
+                    margin-left: auto;
+
+                }
+            }
+
+            .item-inner {
+                /* padding: 30px 20px; */
+                /* max-width: 608px; */
+                /* background-color: white; */
+                position: relative;
+                display: inline-block;
+                overflow: hidden;
+              
+
+                /* clip-path: polygon(99% 99%, 5% 0, 100% 0, 100% 93%, 85% 93%, 85% 100%, 0 100%, 0 8%); */
+                
+                
+                
+                
+                .h2 {
+                    opacity: 0;
+                    transform: scale(.5);
+                    /* clip-path: polygon(0 0, 0 100%, 0 100%, 0 0); */
+                transition: opacity .5s ease, transform .3s ease-out;
+                }
+
+                &.showing {
+                    .h2 {
+                        /* clip-path: polygon(5% 8%, 5% 0, 100% 0, 100% 93%, 85% 93%, 85% 100%, 0 100%, 0 8%); */
+                    /* clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0); */
+                    opacity: 1;
+                    transform: scale(1);
+
+                    }
+
+                }
+            }
+
+
+        }
+
+        .copy {
+            margin-top: 16px;
+        }
+
+        .buttons {
+            margin-top: 8px;
+
+            .button.small {
+                margin: 8px 16px 8px 0;
+                padding: 7px 24px;
+            }
+        }
+    }
 </style>
