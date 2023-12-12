@@ -3,28 +3,18 @@
         <div class="wrapper">
 
 
-            <div class="image-carousel">
-                <div class="image-container">
 
-
-                    <div class="global-image cover">
-                        <transition name="fade">
-                            <img src="/img/mc.jpeg" :alt="currentImage.alt" :key="currentImage.url" />
-                        </transition>
+                    <div class="global-image">
+                            <img src="/img/mc.jpeg" alt="Me admiring Deception Pass State Park" />
 
                     </div>
-
-                </div>
-            </div>
-
 
 
             <div class="container">
                 <div class="content">
                     <div :data-id="index" v-for="(item, index) in slides" class="item">
                         <div class="item-inner" ref="slidesRef">
-                            <h3 v-if="item.title" class="h2">{{ item.title }}</h3>
-                            <div v-if="item.body" class="copy subhead-4" v-html="item.body"></div>
+                            <h3 class="h2">{{ item }}</h3>
                         </div>
                     </div>
                 </div>
@@ -89,15 +79,9 @@
     .block-full-screen-fade {
         position: relative;
         min-height: 100vh;
+        background: rgba($white, .7);
 
-        .image-carousel {
-            position: absolute;
-            inset: 0 0 0 0;
-            min-height: 100vh;
-
-        }
-
-        .image-container {
+        .global-image {
             position: sticky;
             top: 0;
             width: 100vw;
@@ -108,7 +92,6 @@
             
         }
 
-        .global-image,
         img {
             position: absolute;
             inset: 0 0 0 0;

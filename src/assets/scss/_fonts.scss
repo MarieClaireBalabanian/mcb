@@ -1,5 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Rubik+Mono+One&family=Syne&display=swap');
+$fontBase: '@/assets/fonts';
 
-$body: 'Syne', 'Verdana', 'sans-serif';
-$major-mono: 'Major Mono Display', 'sans-serif';
+
+ // Major Mono
+
+@font-face {
+    font-family: 'Major Mono Display';
+    src: url(#{$fontBase}/major-mono-display-v16-latin-regular.woff2) format('woff2'); 
+    font-display: swap; 
+    font-style: normal;
+    font-weight: 400;
+    
+  }
+
+
+  // Syne
+
+  @font-face {
+    font-family: 'Syne';
+    src: url(#{$fontBase}/syne-v22-latin-regular.woff2) format('woff2'); 
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: 'Syne';
+    src: url(#{$fontBase}/syne-v22-latin-500.woff2) format('woff2'); 
+    font-style: normal;
+    font-display: swap;
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: 'Syne';
+    src: url(#{$fontBase}/syne-v22-latin-600.woff2) format('woff2');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 600; 
+  }
+
+  @font-face {
+    font-family: 'Syne';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 700;
+    src: url(#{$fontBase}/syne-v22-latin-700.woff2) format('woff2'); 
+  }
+
+
+
+  // Rubik Mono
+
+
+  @font-face {
+    font-family: 'Rubik Mono One';
+    src: url(#{$fontBase}/rubik-mono-one-v18-latin-regular.woff2) format('woff2'); 
+    font-display: swap; 
+    font-style: normal;
+    font-weight: 400;
+  }
+
+
+// $final: 'Andale Mono';
+// $final: 'Courier';
+
+
+
+$major-mono:  'Major Mono Display', 'sans-serif';
 $rubik: 'Rubik Mono One', 'sans-serif';
+$syne: 'Syne', 'Verdana', 'sans-serif';
+
+$title: $syne, 'Verdana', 'sans-serif';
+$body:  $syne, 'Verdana', 'sans-serif';

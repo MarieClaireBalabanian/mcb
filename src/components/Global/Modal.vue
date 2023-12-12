@@ -4,7 +4,9 @@
             ref="triggerRef" 
             @click="open = true"
             :aria-label="`Learn more about ${project.title}`">
+            <span class="brackets h5" aria-hidden="true">[</span>
             Learn More
+            <span class="brackets h5" aria-hidden="true">]</span>
         </button>
 
         <Teleport to="body">
@@ -17,23 +19,17 @@
                                 <h2 class="h2 mb-40" id="modal-title">{{ project.title }}</h2>
 
                                 <div class="tech mb-40 flex-align-center wrap">
-                                    <p class="h3">BUILT WITH:</p>
                                     <ul class=" text-list">
-                                        <li class="paragraph" v-for="item in project.tech">
+                                        <li class="paragraph-small rubik" v-for="item in project.tech">
                                             {{ item }}
-                                        </li>
+                                        </li> 
                                     </ul>
                                 </div>
 
-                                <div class="company mb-40" v-if="project.company">
-                                    <p class="paragraph"><u>THE CLIENT:</u></p>
-                                    <p class="paragraph">{{ project.company }}</p>
-                                </div>
 
                                 <div class="company mb-80" v-if="project.description">
-                                    <p class="paragraph"><u>THE PROJECT:</u></p>
-
-                                    <p class="paragraph">{{ project.description }}</p>
+                                    <p class="paragraph mb-20"><u>ABOUT THE PROJECT:</u></p>
+                                    <div class="paragraph" v-html="project.description"></div>
                                 </div>
     
                                 <GlobalCarousel class="mb-80" :images="project.images" />
@@ -46,7 +42,7 @@
                                     <p class="paragraph">Short snippet of the presentation</p>
                                 </div>
 
-                                <p class="paragraph">{{ project.body }}</p>
+                                <!-- <p class="paragraph">{{ project.body }}</p> -->
                                 <button type="button button-red" class="close" @click.stop="open = false">
                                     <span class="sr-only">Close Modal</span>
                                 </button>
@@ -103,7 +99,6 @@
         left: 0;
         top: 0;
         overflow: auto;
-        padding: 100px 0;
         height: 100vh;
         width: 100vw;
         z-index: 9999;
@@ -113,6 +108,7 @@
         >.focus-trap {
             width: 100%;
             margin: auto;
+            padding: 100px 0;
         }
 
 
@@ -180,12 +176,6 @@
         }
 
         .tech {
-            p {
-                margin-right: 1rem;
-            }
-            ul {
-                font-style: italic;
-            }
         }
     }
 </style>

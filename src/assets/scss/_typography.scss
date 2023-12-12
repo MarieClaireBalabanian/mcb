@@ -8,21 +8,23 @@ body {
 }
 
 
-.h1, .h2, .h2-stroke, .h3, .h4 {
-}
+
 .h1 {
   font-size: 3rem;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: .1rem;
+  font-family: $syne;
   @media (min-width: 1024px) {
     font-size: 6rem;
   }
 }
 .h2 {
   font-size: 2rem;
+  font-family: $title;
+  // letter-spacing: -.06em;
   @media (min-width: 1024px) {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -32,6 +34,7 @@ body {
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1.5px;
   -webkit-text-stroke-color: $black;
+  // font-family: 'Arial';
 
   &.blue {
     color: $prussian-blue;
@@ -52,20 +55,48 @@ body {
 
 .h3 {
   font-size: 1.4rem;
+  // font-family: $title;
   @media (min-width: 1024px) {
-  
+    font-size: 1.6rem;
   }
+}
 
+.h4 {
+  font-size: 1.4rem;
+  // font-family: $title;
+  @media (min-width: 1024px) {
+    font-size: 1.6rem;
+  }
+}
+
+.h5 {
+  font-size: 1.2rem;
+  // font-family: $title;
+  @media (min-width: 1024px) {
+    font-size: 1.2rem;
+  }
 }
 
 
 .paragraph {
   font-size: 1rem;
-  line-height: 1.7rem;
+  line-height: 1.7em;
+
+  p + p {
+    margin-top: 1.5rem;
+  }
+}
+
+.paragraph-small {
+  font-size: .9rem;
+  line-height: 1.6em;
 }
 
 .text-blue {
   color: $prussian-blue;
+}
+.text-turquoise {
+  color: $turquoise;
 }
 .text-white {
   color: $white;
@@ -77,4 +108,9 @@ body {
 
 .bold {
   font-weight: 700;
+}
+
+
+.rubik {
+  font-family: $rubik;
 }

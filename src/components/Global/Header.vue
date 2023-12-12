@@ -1,11 +1,12 @@
 <template>
-    <header class="global-header" :class="{open: open }" id="header">
+    <header class="global-header" :class="{open: open, 'full-nav': 
+    hasScrolled }" id="header">
         <div class="container">
             <GlobalFocusTrap :enabled="open" class="trap-wrapper">
                 <nav class="items-container" @keyup.esc="closeNav" aria-label="Main Navigation">
                     <a href="#top" class="logo" @click.prevent="scroll('top')">
                         <span>MCB</span>
-                    </a>
+                     </a>
 
                     <div class="button-wrapper">
                         <button id="menu-toggle" aria-haspopup="true" class="hamburger" ref="hamburger"
@@ -32,7 +33,8 @@
                                 <div class="inner-menu" tabindex="-1" id="inner-menu" aria-label="Expanded Navigation">
                                     <ul class="items">
                                         <li v-for="(item, index) in menu" :key="`nav-${index}`">
-                                            <a @click.prevent="scroll(item.slug)" :href="`#${item.slug}`" ref="topLevel">
+                                            <a @click.prevent="scroll(item.slug)" :href="`#${item.slug}`"
+                                                ref="topLevel">
                                                 {{ item.title }}
                                             </a>
                                         </li>
@@ -50,11 +52,19 @@
 </template>
 
 <script setup>
-import { ref, computed, nextTick } from 'vue'
-
+    import { ref, reactive, computed, toRefs, onMounted, watch  } from 'vue'
     import { scrollTo } from '../../composables/scrollTo.js'
 
-    const open = ref(false)
+    import { useWindowStore } from '@/stores/window';
+    const windowStore = useWindowStore();
+
+    const scrollTop = computed(() => {
+        return windowStore.scrollTop;
+    });
+
+    const hasScrolled = computed(() => {
+        return scrollTop?.value > window.innerHeight * 3; // try subtrating the height of WORK
+    })
 
     const menu = [
         { title: 'Work', slug: 'work' },
@@ -62,23 +72,20 @@ import { ref, computed, nextTick } from 'vue'
         { title: 'Contact', slug: 'contact' },
     ]
 
-    const hamburgerSR = computed(() => {
-        return open.value ? "Close Navigation" : "Open Navigation";
-    })
-
-
+    const open = ref(false);
 
     const toggleNav = () => {
-        if (open.value) {
-            closeNav();
-        } else {
-            open.value = true;
-            nextTick(() => {
-                document.body.style.overflow = "hidden";
-                let focus = document.getElementById("inner-menu");
-                focus.focus();
-            });
-        }
+        if (open.value) closeNav();
+        else openNav();
+    }
+
+    const openNav = () => {
+        open.value = true;
+        nextTick(() => {
+            document.body.style.overflow = "hidden";
+            const focus = document.getElementById("inner-menu");
+            focus.focus();
+        });
     }
 
     const closeNav = () => {
@@ -88,16 +95,18 @@ import { ref, computed, nextTick } from 'vue'
 
     const scroll = (id) => {
         const anim = open.value ? 'instant' : 'smooth';
-        if (open.value)  closeNav();
+        if (open.value) closeNav();
         scrollTo(id, anim);
     }
 
     const skipToContent = () => {
         const anchor = document.getElementById('main');
-        if (anchor) {
-            anchor.focus();
-        }
+        anchor.focus();
     };
+
+    const hamburgerSR = computed(() => {
+        return open.value ? "Close Navigation" : "Open Navigation";
+    })
 
 </script>
 
@@ -111,10 +120,9 @@ import { ref, computed, nextTick } from 'vue'
         transition: 300ms ease;
         transform: translateY(-100%);
         opacity: 0;
-        animation: .6s header-show 2s forwards ease;
-        background: rgba($white, .9);
+        animation: .6s header-show .5s forwards ease;
 
-        > .container {
+        >.container {
             height: $header-height;
         }
 
@@ -132,6 +140,7 @@ import { ref, computed, nextTick } from 'vue'
             height: 22px;
             width: 22px;
             margin-top: 5px;
+            display: none;
         }
 
         .hamburger {
@@ -156,7 +165,7 @@ import { ref, computed, nextTick } from 'vue'
 
         .circle {
             $pad: 20px;
-            
+
             height: 300vmax;
             width: 300vmax;
             display: block;
@@ -173,8 +182,8 @@ import { ref, computed, nextTick } from 'vue'
                 left: calc(100vw - 40px - 11px);
             }
 
-            @media (min-width: 1200px) {
-                left: calc(50% + 1200px/2 - 40px - 11px);
+            @media (min-width: $max-container) {
+                left: calc(50% + calc($max-container/2) - 40px - 11px);
             }
 
             &.hide {
@@ -260,6 +269,13 @@ import { ref, computed, nextTick } from 'vue'
             }
         }
 
+        &.full-nav {
+            background: $white;
+            .button-wrapper {
+                display: block;
+            }
+        }
+
         .showItems-enter-active {
             transition: transform .4s ease-out .65s, opacity .6s ease-out .69s;
         }
@@ -267,14 +283,17 @@ import { ref, computed, nextTick } from 'vue'
         .showItems-leave-active {
             transition: .2s ease-out;
         }
-        
-        .showItems-enter-from, .showItems-leave-to {
+
+        .showItems-enter-from,
+        .showItems-leave-to {
             opacity: 0;
-            transform: translate3d(0,200px,0);
+            transform: translate3d(0, 200px, 0);
         }
-        .showItems-enter-to, .showItems-leave {
+
+        .showItems-enter-to,
+        .showItems-leave {
             opacity: 1;
-            transform: translate3d(0,0,0);
+            transform: translate3d(0, 0, 0);
         }
 
         @keyframes header-show {

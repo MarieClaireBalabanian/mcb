@@ -1,13 +1,12 @@
 <template>
     <section class="block-split-text-image" :class="alignment" ref="blockRef" tabindex="-1">
         <div class="container">
-            <h3 class="h2 mb-20">{{ project.title }}</h3>
+            <h3 class="h2 mb-40">
+                <span class="desktop-only" aria-hidden="true">/* </span>{{ project.title }}<span class="desktop-only" aria-hidden="true"> */</span></h3> 
             <div class="content">
                 <div class="translates copy desktop-only" :class="copyTransition">
-                    <h4 class="h3 mb-20">{{ project.subtitle }}</h4>
-                    <p class="paragraph mb-20">
-                        {{ project.body }}
-                    </p>
+                    <h4 class="h3 mb-20" v-if="project.subtitle">{{ project.subtitle }}</h4>
+                    <div class="paragraph mb-20" v-if="project.description" v-html="project.description"></div>
                     <div class="actions" v-if="isDesktop && alignment === 'image-right'">
                         <GlobalModal :project="project"/>
                     </div>
@@ -17,8 +16,8 @@
                         :class="{ 'full': !project.portrait}" />
                 </div>
                 <div class="translates copy" :class="copyTransition">
-                    <h4 class="h3 mb-20">{{ project.subtitle }}</h4>
-                    <p class="paragraph mb-40">{{ project.body }}</p>
+                    <h4 class="h3 mb-20" v-if="project.subtitle">{{ project.subtitle }}</h4>
+                    <div class="paragraph mb-20" v-if="project.description" v-html="project.description"></div>
                     <div class="actions" v-if="(isDesktop && alignment !== 'image-right') || !isDesktop">
                         <GlobalModal :project="project"/>
                     </div>
@@ -50,7 +49,8 @@
     const observer = ref(null)
 
     const images = computed(() => {
-        return project?.value.images.slice(0, 2);
+        const num = project?.value.portrait ? 2 : 1;
+        return project.value.images.slice(0, num);
     });
 
     const isDesktop = computed(() => {
@@ -129,32 +129,38 @@
             padding: 35px 7% 0 7%;
             position: relative;
             z-index: 2;
-        }
 
-        .carousel-component {
-            .dots {
-                bottom: 0px;
+            .paragraph {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
             }
         }
 
+        .h2 {   
+            /* max-width: 85%; */
+        }
+
         @media (min-width: 768px) {
-            padding: 90px 0 100px;
+            padding:  160px 0 100px;
 
             .content {
                 display: flex;
                 position: relative;
                 padding: 20px 0 0 0;
-                align-items: flex-start;
+                align-items: center;
                 overflow: hidden;
+
             }
 
             .image-wrapper {
-                width: 55%;
+                width: 45%;
                 margin: unset;
             }
 
             .copy {
-                width: 45%;
+                width: 55%;
                 padding: 40px 5% 0 5%;
             }
 
