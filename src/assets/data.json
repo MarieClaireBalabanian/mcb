@@ -3,55 +3,64 @@
     "projects": [
       
       {
-        "slug": "ibm-masters-2023",
-        "title": "IBM Digital Experience @ the 2023 Masters",
-        "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+        "title": "IBM @ the 2023 Masters Golf Tournament",
+        "subtitle": "IBM Digital Experience Showcase",
+        "body": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models.",
         "images": [
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/masters2023-player.jpg",
                 "alt": "",
                 "mobile": false
             },
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/masters2023-whitedogwood.jpg",
                 "alt": "",
                 "mobile": false
             },
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/masters2023-course.jpg",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/projects/masters2023-playerstowatch.jpg",
                 "alt": "",
                 "mobile": false
             }
         ],
-        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+        "video": "/videos/masters2023.mp4",
+        "tech": ["Nuxt 2", "IBM APIs", "Websockets"],
+        "description": "IBM has been partnered with Masters Golf Tournament for years, providing innovative technology solutions to enhance the viewing experience for both on-site spectators and global audiences. Watson is a powerful artificial intelligence (AI) system developed by IBM (International Business Machines Corporation). IBM Watson is designed to process and analyze large volumes of data, understand natural language, and provide insights and answers to complex questions.",
+        "slug": "ibm-masters-2023"
       },
-      {
-        "slug": "samson",
-        "title": "Samson Technologies, Inc.",
-        "subtitle": "Complete Website Redsign",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-        "images": [
-            {
-                "url": "/img/test/samson.png",
-                "alt": "",
-                "mobile": true
-            },
-            {
-                "url": "/img/test/samson.png",
-                "alt": "",
-                "mobile": true
-            },
-            {
-                "url": "/img/test/samson.png",
-                "alt": "",
-                "mobile": false
-            }
-        ],
-        "website": "https://samsontech.com/",
-        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
 
+      {
+        "slug": "cac-open-house-2023",
+        "title": "Chicago Architecture Center",
+        "subtitle": "Open House Chicago 2023 - Mobile App Companion",
+        "body": "The Official Mobile App of OHC 2023 provide users with all essential information about the event, including a list of participating sites, their locations, architectural details, and special programming or events associated with them. The app may also feature interactive maps, itineraries, and tools to help users plan their visits and make the most of the Open House Chicago experience. Additionally, users might find features for favoriting or bookmarking buildings they are interested in, receiving notifications about upcoming events, and accessing real-time updates",
+        "images": [
+            {
+                "url": "/img/projects/cac-home.jpg",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/projects/cac-sites.jpg",
+                "alt": "",
+                "mobile": true
+            },
+            {
+                "url": "/img/projects/cac-tour.jpg",
+                "alt": "",
+                "mobile": true
+            }
+        ],
+        "portrait": true,
+        "tech": ["Nuxt 3", "Airtable Web API", "Google Maps Javascript API"],
+        "description": "<p>The Chicago Architecture Center (CAC) is a beloved institution committed to fostering widespread admiration for architecture and the built environment in the city of Chicago.</p><p>Every October, CAC hosts Open House Chicago—a free public festival that offers special access to the city’s architectural gems, through behind-the-scenes access to architecturally, historically and culturally significant sites across the city and special event programming. Open House Chicago remains one of the largest events of its kind in the world. CAC publishes a companion app, available for iPhone and Android, to provide users with tools to make the most of their Open House Chicago experience. The app features information on participating sites, event programming, interactive maps, custom and curated itineraries, bookmarking, favoriting, sharing, and notifications of real-time updates. The app was built as a web app inside a PWA wrapper for app stores.</p><p>Functioning as one of a few developers on this project, I was responsible for guiding the modification and creation of fields in the client’s Airtable CMS to meet the data-related needs of the app, requesting that data from the Airtable Web API, integrating the data into app components, building reusable components for the front-end, component styling, and working with Google maps and directions.</p>"
       },
+      
       {
         "slug": "lincoln-center",
         "title": "Lincoln Center + New York Philharmonic",
@@ -59,190 +68,140 @@
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
             {
-                "url": "/img/test/geffen.png",
+                "url": "/img/projects/geffen-explore.jpg",
+                "alt": ""
+            },
+            {
+                "url": "/img/projects/geffen-composer.jpg",
+                "alt": ""
+            }
+        ],
+        "portrait": true,
+        "tech": ["Nuxt 2", "Django CMS"],
+        "description": "<p>Through a set of interactive touchscreens at the newly renovated David Geffen Hall at Lincoln Center, the narrative of the New York Philharmonic unfolds. These screens beckon guests to delve into the rich tapestry of the NY Phil. They offer a window into the lives of its musicians, the legacies of past composers and music directors, and share rich stories about performances, personalities, and pivotal historical moments.</p><p>Contracted by AV&C, with designs by 2x4. Being one of the two developers tasked with building out the front end of this web app for such a renowned cultural institution was truly an honor. Working with AV&C’s head developer who built out a Django CMS for the NY Phil content,  I incorporated the data into the app while building out reusable front-end components. Pixel-perfect css was key and it was a total pleasure to honor 2x4s beautiful designs. Another key element was leveraging scroll-based computations to implement complex touch experiences and elegant animations/behavior.</p><p>Gorgeous and complex Nuxt page transitions are used throughout the experience. I cannot take credit for that artistry which was added by my incredibly talented partner after I built out screens.</p>"
+      },
+      {
+        "slug": "samson",
+        "title": "Samson Technologies, Inc.",
+        "subtitle": "Fresh Website Design and Build",
+        "body": "Bringing Samson's web presence into the modern day and empowering them with ecommerce abilities for the first time.",
+        "images": [
+            {
+                "url": "/img/projects/samson-desktop-homepage-crop.jpg",
                 "alt": "",
                 "mobile": true
             },
             {
-                "url": "/img/test/geffen.png",
-                "alt": "",
-                "mobile": true
-            },
-            {
-                "url": "/img/test/geffen.png",
+                "url": "/img/projects/samson-desktop-product-crop.jpg",
                 "alt": "",
                 "mobile": true
             }
         ],
-        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+        "website": "https://samsontech.com/",
+        "tech": ["Nuxt 2", "Django", "Wagtail CMS", "Graphql" ],
 
+        "description": "<p>Samson Technologies, a subsidiary of Sam Ash Music, stands at the forefront of innovation, dedicated to crafting cutting-edge audio solutions that resonate with musicians, audio professionals, and enthusiasts alike.</p><p>Samson came to us with an aesthetically outdated site and one glaring issue- the lack of any e-commerce functionality on their existing site. After a complete redesign and shift in priorities, I was tasked with building out their new website from the ground up, with the help of an awesome backend partner. My role was that of sole front-end developer and one half of the backend team. This was my first foray into Python, Django, and GraphQL. I learned a ton along the way, through trial by fire. I built out models, created custom endpoints for complex requests and wrote GraphQL queries. I also built out the entire front-end and made the data flow throughout it. For e-commerce functionality, Samson struck up a partnership with Direct Commerce Platform. DCP provided all e-commerce related product information and a cart, which I integrated into the site.</p>"
       },
+
       {
-        "slug": "ibm-usopen-2022",
-        "title": "IBM Digital Experience @ the 2022 US Open",
-        "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
+        "slug": "ibm-us-open-2022",
+        "title": "IBM @ the 2022 US Open",
+        "subtitle": "IBM Digital Experience Showcase",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/usopen-1.jpg",
                 "alt": "",
                 "mobile": false
             },
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/usopen2.jpg",
                 "alt": "",
                 "mobile": false
             },
             {
-                "url": "/img/test/masters.png",
+                "url": "/img/projects/usopen3.jpg",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/projects/usopen4.jpg",
+                "alt": "",
+                "mobile": false
+            },
+            {
+                "url": "/img/projects/usopen5.jpg",
                 "alt": "",
                 "mobile": false
             }
         ],
-        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
-
+        "tech": ["Nuxt 2", "IBM APIs", "Websockets"],
+        "description": "<p>IBM has been the official technology partner of the Masters Tournament for several years, providing various technological solutions to enhance the fan experience via the Masters app, improve operations, ensure security, and deliver insights to players, broadcasters, and spectators.</p><p>Throughout the tournament, IBM analyzes vast amounts of data such as player statistics, historical data, and real-time scoring.</p><p>AV&C came to Mess Marketing with a need for developers to build out an interactive slideshow that highlights IBM’s work in Data and Analytics, AI (Watson), Cloud Computing, and Security at the Masters. They were building out a massive installation in a VIP Suite at the tournament, which would display the presentation on a huge screen consisting of 77 smaller screens. Docents guided special guests through a showcase of IBM’s services, using a “controller”, an iPhone running the slideshow in the browser. This controller, via web sockets, controlled the slideshow’s movements.</p><p>This was one of my favorite projects. I was one of two developers, however, I was also thrown into the role of Producer and IBM-data-wrangler. As IBM had never done this before, there were no pre-existing endpoints on IBM’s side that provided all the data we needed. The true data-driven portion of the presentation were the screens or “Course Overview”, “Hole Insights”, “Player Top 5”, and “Player Insights.” These screens featured a mix of historical data, player statistics, real-time scoring, and AI Watson’s predictions. Throughout the build, I worked directly and very closely with IBM's Sports CTO, drawing up schema to define the kind of request responses we would need and QA’ing the json responses regularly to find any missing data or kinks in the behaviors of the provided endpoints. I integrated this data into the Nuxt app and passed it to both the slideshow screen and the controller. I built out the HTML/CSS/Javascript needed to display the data in the Insights section. There was a multitude of data mutations and computations to perform along the way, and I can now say I am a bit of a golf expert. After 4 grueling 65-hour weeks, the presentation wowed the execs at IBM. It was an incredible pay-off and something I'm really proud of.</p>"
       },
-      
-      {
-        "slug": "open-house-chicago-2023",
-        "title": "Chicago Architecture Association - 2023 Open House Chicago",
-        "subtitle": "PWA for Open House",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-        "images": [
-            {
-                "url": "/img/test/cac.png",
-                "alt": "",
-                "mobile": true
-            },
-            {
-                "url": "/img/test/cac.png",
-                "alt": "",
-                "mobile": true
-            },
-            {
-                "url": "/img/test/cac.png",
-                "alt": "",
-                "mobile": true
-            }
-        ],
-        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
-
-      },
+    
       {
         "slug": "ibm-masters-2022",
-        "title": "IBM Digital Experience @ the 2022 Masters",
+        "title": "IBM @ the 2022 Masters Golf Tournament",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-        "subtitle": "VIP Suite Presentation Showcasing AI Watson / Language Learning Models",
+        "subtitle": "IBM Digital Experience Showcase",
         "images": [
             {
-                "url": "/img/test/masters.png",
-                "alt": "",
-                "mobile": false
+                "url": "/img/projects/masters-2022-player.jpg",
+                "alt": ""
             },
             {
-                "url": "/img/test/masters.png",
-                "alt": "",
-                "mobile": false
-            },
-            {
-                "url": "/img/test/masters.png",
-                "alt": "",
-                "mobile": false
+                "url": "/img/projects/masters-2022-course.jpg",
+                "alt": ""
             }
         ],
-        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
+        "tech": ["Nuxt 2", "IBM APIs", "Websockets"],
+        "description": "<p>IBM has been the official technology partner of the Masters Tournament for several years, providing various technological solutions to enhance the fan experience via the Masters app, improve operations, ensure security, and deliver insights to players, broadcasters, and spectators.</p><p>Throughout the tournament, IBM analyzes vast amounts of data such as player statistics, historical data, and real-time scoring.</p><p>AV&C came to Mess Marketing with a need for developers to build out an interactive slideshow that highlights IBM’s work in Data and Analytics, AI (Watson), Cloud Computing, and Security at the Masters. They were building out a massive installation in a VIP Suite at the tournament, which would display the presentation on a huge screen consisting of 77 smaller screens. Docents guided special guests through a showcase of IBM’s services, using a “controller”, an iPhone running the slideshow in the browser. This controller, via web sockets, controlled the slideshow’s movements.</p><p>This was one of my favorite projects. I was one of two developers, however, I was also thrown into the role of Producer and IBM-data-wrangler. As IBM had never done this before, there were no pre-existing endpoints on IBM’s side that provided all the data we needed. The true data-driven portion of the presentation were the screens or “Course Overview”, “Hole Insights”, “Player Top 5”, and “Player Insights.” These screens featured a mix of historical data, player statistics, real-time scoring, and AI Watson’s predictions. Throughout the build, I worked directly and very closely with IBM's Sports CTO, drawing up schema to define the kind of request responses we would need and QA’ing the json responses regularly to find any missing data or kinks in the behaviors of the provided endpoints. I integrated this data into the Nuxt app and passed it to both the slideshow screen and the controller. I built out the HTML/CSS/Javascript needed to display the data in the Insights section. There was a multitude of data mutations and computations to perform along the way, and I can now say I am a bit of a golf expert. After 4 grueling 65-hour weeks, the presentation wowed the execs at IBM. It was an incredible pay-off and something I'm really proud of.</p>"
 
       },
     
       {
         "slug": "surety-hotel",
-        "title": "Surety Hotel - Aparium Hotel Group",
-        "subtitle": "Website Build",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-  
+        "title": "Aparium Hotel Group - Surety Hotel",
+        "subtitle": "Website Build",  
         "images": [
             {
-                "url": "/img/test/surety.png",
-                "alt": "",
-                "mobile": true
+                "url": "/img/projects/surety-desktop-homepage-crop.jpg",
+                "alt": ""
+            },
+            {
+                "url": "/img/projects/surety-desktop-tavern-crop.jpg",
+                "alt": ""
             },
             {
                 "url": "/img/test/surety.png",
-                "alt": "",
-                "mobile": true
-            },
-            {
-                "url": "/img/test/surety.png",
-                "alt": "",
-                "mobile": true
+                "alt": ""
             }
         ],
         "website": "https://suretyhotel.com/",
-        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
-
+        "tech": ["Vue 2", "Wordpress"],
+        "description": "<p>Aparium is a hotel management company that specializes in boutique lifestyle hotels in both established and emerging markets. As they were nearing the completion of construction of Surety Hotel in Des Moines, Iowa they needed a sleek new site to accompany its launch. The website presents prospective guests with what both the hotel and the city of Des Moines have to offer.</p><p>As the sole developer on this project, I worked with Advanced Custom Fields and flexible content blocks to allow the client to build pages as they please after-launch, and modify pre-existing ones with ease. Vue.js, ACF, Custom Post Types, Gravity Forms, the WP-JSON Rest API, Yoast SEO and Google Maps are some of the tools used to bring the clients vision and needs to life. One thing I really tried to pay attention to is accessibility. Ensuring that all action items are available to keyboard users and screenreader users.</p>"
     },
       {
         "slug": "mc-hotel",
-        "title": "The MC Hotel - Marriott +  Aparium Hotel Group",
+        "title": "Marriott + Aparium Hotel Group - The MC Hotel",
         "subtitle": "Website Build",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu aliquam dolor. Sed a justo ornare, rhoncus quam ac, hendrerit quam. Nunc nec ligula dolor. Ut ut tristique ex. Curabitur nisl mauris, vestibulum eu lectus ut, tincidunt fermentum leo. Quisque lectus odio, sodales et tincidunt ac, posuere a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
         "images": [
             {
-                "url": "/img/test/mc.png",
-                "alt": ""
-            },
-            {
-                "url": "/img/test/mc.png",
-                "alt": ""
-            },{
-                "url": "/img/test/mc.png",
-                "alt": ""
+                "url": "/img/projects/mc-desktop-homepage-crop.jpg",
+                "alt": "The MC Hotel's website homepage hero section."
             }
+           
         ],
         "website": "https://themchotel.com/",
-        "tech": ["Nuxt 2", "Vuex", "Wagtail", "Django"]
-
+        "tech": ["Vue 2", "Wordpress"],
+        "description": "<p>The MC Hotel, part of the Marriott Autograph Collection, is a boutique hotel located in Montclair, New Jersey.</p>"
     }
     ],
     "about": [
-        {
-            "title": "I would rather be in a state of total awe and reverence",
-            "img": {
-                "url":"/img/one-min.jpg"
-           }
-        },
-        {
-            "title": "...or wheelthrowing",
-            "img": {
-                "url":"/img/wheel-min.jpeg"
-           }
-        },
-        
-        {
-            "title": "...or droning",
-            "img": {
-                "url":"/img/synths-min.jpeg"
-           }
-        }
-    ],
-    "skills": [
-        "HTML5",
-        "CSS3",
-        "Sass",
-        "Responsiveness",
-        "Cross-browser Compatibility",
-        "JavaScript",
-        "WCAG",
-        "Vue.js (2+3)",
-        "Vuex",
-        "Pinia",
-        "Nuxt.js (2+3)",
-        "API Integration",
-        "JSON",
-        "Wordpress",
-        "Headless CMS",
-        "Django",
-        "Wagtail",
-        "Git + Bitbucket"
+        "Well, hello there.",
+        "I'm a web developer with over five years of professional experience, passionately dedicated to crafting websites and web apps that faithfully reflect a project's needs.",
+        "But deep down I'm just an analog kid in a digital world.",
+        "Besides all the web stuff, I make music, pottery, and blissed-out memories in the natural world.",
+        "I guess I just love making things."
     ]
 }

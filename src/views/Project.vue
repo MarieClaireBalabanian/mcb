@@ -1,23 +1,23 @@
 <template>
-    <div class="container project-detail">
-        <section class="intro">
-            <h1 class="h1 mb-40">{{ project.title }}</h1>
-            <div class="stack">
-                <h3 class="h3 bold">TECH:</h3>
-                <ul class="text-blue bold">
-                    <li v-for="item in project.tech">
-                        {{ item }}
-                    </li>
-                </ul>
+    <div class="project-detail">
+        <section class="intro mb-40 bg-black">
+            <div class="container">
+                <h1 class="h2-large uppercase mb-40">{{ project.title }}</h1>
+                <h2 class="h3 bold text-center">{{ project.subtitle }}</h2>
             </div>
         </section>
-                   <img class="" :src="project.images[0].url" />
-
+        <section class="description mb-40">
+            <div class="container">
+                <ul class="tech">
+                    <li class="paragraph-small text-turquoise bold mb-20" v-for="item in project.tech">
+                        {{ item }} 
+                    </li>
+                </ul>
+                <div class="paragraph" v-if="project.description" v-html="project.description"></div>
+            </div>
+        </section>
+        <BlocksThumbnails  :project="project" />
     </div>
-
-    <section>
-
-    </section>
 </template>
 
 
@@ -35,49 +35,31 @@
 
 <style lang="scss">
     .project-detail {
-        section {
-            margin-bottom: 40px;
+        padding-top: $header_height;
+
+
+        .intro {
+            padding: 100px 0;
+            clip-path: polygon(0 0, 100% 60px, 100% 100%, 0 calc(100% - 60px));
         }
 
-        img {
-            box-shadow: 0 0 8px 2px rgba($gray-dark, .1);
-            width: 100%;
+        .container {
+            max-width: 1150px;
         }
 
-        .stack {
+        .description .container {
             display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-
-            .h3 {
-                margin-right: 30px;
-            }
-
             ul {
-                display: flex;
-                flex-wrap: wrap;
-
-                
-
-                li {
-                    
-                    +li {
-                        padding-left: 40px;
-                        position: relative;
-
-                        &::before {
-                            position: absolute;
-                            content: '';
-                            top: .4em;
-                            left: calc(20px - .15rem);
-                            width: .3rem;
-                            height: .3rem;
-                            background: $black;
-                            border-radius: 50%;
-                        }
-                    }
-                }
+                width: 200px;
             }
+            div {
+                width: calc(100% - 200px);
+                padding-left: 30px;
+            }
+        }
+
+        video {
+            width: 100%;
         }
     }
 </style>

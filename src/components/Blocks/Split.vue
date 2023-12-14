@@ -1,27 +1,25 @@
 <template>
-    <section class="block-split-text-image" :class="alignment" ref="blockRef">
+    <section class="block-split-text-image" :class="alignment" ref="blockRef" tabindex="-1">
         <div class="container">
-            <div class="h1 mb-20">{{ project.title }}</div>
+            <h3 class="h2 mb-40">
+                <span class="desktop-only" aria-hidden="true">/* </span>{{ project.title }}<span class="desktop-only" aria-hidden="true"> */</span></h3> 
             <div class="content">
                 <div class="translates copy desktop-only" :class="copyTransition">
-                    <h2 class="h2 mb-20">{{ project.subtitle }}</h2>
-                    <p class="paragraph mb-20">
-                        {{ project.body }}
-                    </p>
-                    <div class="actions" v-if="project.website">
-                        <router-link :to="`/work/${project.slug}`" class="button red">See More</router-link>
+                    <h4 class="h3 mb-20" v-if="project.subtitle">{{ project.subtitle }}</h4>
+                    <div class="paragraph mb-20" v-if="project.description" v-html="project.description"></div>
+                    <div class="actions" v-if="isDesktop && alignment === 'image-right'">
+                        <router-link class="button" :to="`/work/${project.slug}`">Learn More</router-link>
                     </div>
                 </div>
-                <div class="translates image-wrapper grid grid-2" :class="imageTransition">
-                    <!-- <GlobalCarousel :photos="photos"/> -->
-                    <img v-for="image in project.images" :src="image.url" :alt="image.alt"
-                        :class="{ 'full': !image.mobile}" />
+                <div v-if="images" class="translates image-wrapper grid grid-2" :class="imageTransition">
+                    <img v-for="image in images" :src="image.url" :alt="image.alt"
+                        :class="{ 'full': !project.portrait}" />
                 </div>
                 <div class="translates copy" :class="copyTransition">
-                    <h2 class="h2 mb-20">{{ project.subtitle }}</h2>
-                    <p class="paragraph mb-40">{{ project.body }}</p>
-                    <div class="actions" v-if="project.website">
-                        <router-link :to="`/work/${project.slug}`" class="button red">See More</router-link>
+                    <h4 class="h3 mb-20" v-if="project.subtitle">{{ project.subtitle }}</h4>
+                    <div class="paragraph mb-20" v-if="project.description" v-html="project.description"></div>
+                    <div class="actions" v-if="(isDesktop && alignment !== 'image-right') || !isDesktop">
+                        <router-link class="button" :to="`/work/${project.slug}`">Learn More</router-link>
                     </div>
                 </div>
             </div>
@@ -31,7 +29,9 @@
 </template>
 
 <script setup>
-    import { ref, reactive, computed, toRefs, onMounted } from 'vue'
+    import { ref, reactive, computed, toRefs, onMounted } from 'vue';
+    import { useWindowStore } from '@/stores/window';
+    const windowStore = useWindowStore();
 
     const props = defineProps({
         project: {
@@ -42,10 +42,20 @@
         }
     })
 
-    const { index } = toRefs(props)
+
+    const { project, index } = toRefs(props)
 
     const blockRef = ref(null)
     const observer = ref(null)
+
+    const images = computed(() => {
+        const num = project?.value.portrait ? 2 : 1;
+        return project.value.images.slice(0, num);
+    });
+
+    const isDesktop = computed(() => {
+        return windowStore.isDesktop;
+    });
 
     const alignment = computed(() => {
         return index.value % 2 ? 'image-right' : 'image-left';
@@ -108,7 +118,6 @@
         }
 
         .image-wrapper {
-            margin-left: -20px;
             grid-gap: 15px;
 
             .full {
@@ -120,22 +129,26 @@
             padding: 35px 7% 0 7%;
             position: relative;
             z-index: 2;
-        }
 
-        .carousel-component {
-            .dots {
-                bottom: 0px;
+            .paragraph {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
             }
         }
 
+        .h2 {   
+            /* max-width: 85%; */
+        }
+
         @media (min-width: 768px) {
-            padding: 90px 0 100px;
+            padding:  160px 0 100px;
 
             .content {
                 display: flex;
                 position: relative;
-                padding: 20px 0 0 0;
-                align-items: flex-start;
+                align-items: center;
                 overflow: hidden;
             }
 

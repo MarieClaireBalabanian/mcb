@@ -15,15 +15,13 @@
 </template>
 
 <script setup>
+  import { onMounted } from 'vue';
   import GlobalHeader from "./components/Global/Header.vue";
   import GlobalFooter from "./components/Global/Footer.vue";
   
-
   import { useWindowStore } from './stores/window';
-  import { onMounted } from 'vue'
-
-
   const windowStore = useWindowStore();
+ 
   const scroll = () => {
       windowStore.scrollTop = window.scrollY;
   };
@@ -33,10 +31,21 @@
 					anchor.focus();
 				}
 			}
+  const resize = () => {
+      windowStore.isDesktop = window.innerWidth >= 768;
+      windowStore.windowHeight = window.innerHeight;
+  };
   onMounted(() => {
       scroll();
-      window.addEventListener('scroll', scroll) 
+      resize();
+      window.addEventListener('scroll', scroll);
+      window.addEventListener('resize', resize);
   })
 </script>
 
 
+
+<style lang="scss">
+
+  
+</style>

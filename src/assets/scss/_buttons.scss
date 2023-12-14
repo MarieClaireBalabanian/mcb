@@ -4,48 +4,32 @@ button {
   background: transparent;
   display: inline-block;
   padding: 0;
-  font-family: $body;
-}
-
-.text-link {
-    color: $white;
-    font-size: .8rem;
-    line-height: 1.2em;
-    font-weight: 700;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: .1rem;
-    border-top: 1px solid $red;
-    background: $red;
-    border-bottom: 1px solid $red;
-    padding: 5px 5px 5px 8px;
-
 }
 
 .button {
-  font-size: 14px;
-  line-height: 16.8px;
-  letter-spacing: .02em;
+  font-size: .8rem;
   font-weight: 700;
-  padding: 13px 25px 11px;
+  padding: 1em;
   display: inline-block;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: .1rem;
-
+  letter-spacing: .2em;
+  background: $red;
+  color: $white;
+  transition: .45s ease;
 
   &:focus, &:hover {
-      text-decoration: underline;
+    background: $turquoise;
   }
 
   &.red {
-      color: $white;
-      background: $red;
+      color: $turquoise;
+    //   background: $turquoise;
       border: 2px solid transparent;
 
       &:hover {
-          background: $black;
-          border: 2px solid $black;
+        //   background: $turquoise;
+          border-color: $turquoise;
       }
   }
 
@@ -63,7 +47,20 @@ button {
 }
 
 
+.text-link {
+    color: $white;
+    font-size: .8rem;
+    line-height: 1.2em;
+    font-weight: 700;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    border-top: 1px solid $red;
+    background: $red;
+    border-bottom: 1px solid $red;
+    padding: 5px 5px 5px 8px;
 
+}
 
 
 button.close {

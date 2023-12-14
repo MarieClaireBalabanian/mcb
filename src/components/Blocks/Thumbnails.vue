@@ -1,33 +1,31 @@
 <template>
-    <section class="block-thumbnails" ref="blockRef">
+    <section class="block-thumbnails bg-black" ref="blockRef">
         <div class="container">
-            <ul class="">
-                <li v-for="project in projects">
-                    <img class="mb-20" :src="project.images[0].url" :alt="project.images[0].alt" />
-                    
-                    <div class="copy text-center">
-                        <h3 class="h3 mb-20">{{ project.title }}</h3>
-                        <div class="actions">
-                            <router-link :to="`/work/${project.slug}`" class="text-link" target="_blank" rel="noopener noreferrer">Learn More &rarr;</router-link>
-                        </div>
-                    </div>
-    
-                
+            <GlobalParallaxWrapper x="0" y="120">
+                <p class="floating-text">{{ project.title }}</p>
+            </GlobalParallaxWrapper>
+            
+            <ul  :class="{ 'grid grid-2': project.portrait }" aria-label="More media from the project">
+                <li class="video-container mb-20" v-if="project.video">
+                    <video playsinline muted loop controls aria-describedby="video-transcript">
+                        <source :src="project.video" type="video/mp4">
+                    </video>
+                    <p class="sr-only" id="video-transcript">A video</p>
+                </li>
+                <li class="mb-20" v-for="image in project.images">
+                    <img :src="image.url" :alt="image.alt" />
                 </li>
             </ul>
-             
-            
-
-        </div>
+        </div> 
     </section>
 </template>
 
 <script setup>
-    import { ref, reactive, computed, toRefs, onMounted } from 'vue'
-
+    import { ref, reactive, computed, toRefs, onMounted } from 'vue';
+    
     const props = defineProps({
-        projects: {
-            type: Array,
+        project: {
+            type: Object,
         },
     })
 
@@ -35,22 +33,22 @@
     const observer = ref(null)
 
 
-    const initObserver = () => {
-        let observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('showing');
-                }
-            });
-        });
+    // const initObserver = () => {
+    //     let observer = new IntersectionObserver((entries) => {
+    //         entries.forEach((entry) => {
+    //             if (entry.isIntersecting) {
+    //                 entry.target.classList.add('showing');
+    //             }
+    //         });
+    //     });
 
-        const els = blockRef.value.querySelectorAll('.translates');
-        els.forEach((el) => {
-            observer.observe(el);
-        })
+    //     const els = blockRef.value.querySelectorAll('.translates');
+    //     els.forEach((el) => {
+    //         observer.observe(el);
+    //     })
 
-        observer.value = observer;
-    };
+    //     observer.value = observer;
+    // };
 
     onMounted(() => {
         // initObserver();
@@ -61,41 +59,35 @@
 
 <style lang="scss">
     .block-thumbnails {
-        padding: 60px 0;
-        background: $black;
-
-
-        .image-wrapper,
-        img {
-            width: 100%;
-            max-height: 200px;
-            object-fit: cover;
-            object-position: left center;
+        clip-path: polygon(0 0, 100% 60px, 100% 100%, 0 calc(100% - 60px));
+        padding: 100px 0;
+        .container {
+            position: relative;
         }
 
-        ul {
-            columns: 2;
-            column-gap: 5%;
-            li {
-                margin-bottom: 60px;
-                width: 90%;
-                background: $white;
-                break-inside: avoid;
-                
+        
+        
 
-                &:nth-child(3n) {
-                    margin-left: auto;
-                }
-    
-            }
-            .copy {
-                padding: 0 10px 20px;
-            }
+
+        .floating-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-90deg) translateX(-100%);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            transform-origin: left top;
+        }
+
+        img {
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
         }
 
 
         @media (min-width: 768px) {
-            padding: 90px 0 100px;
+            padding: 100px 0;
 
         }
     }

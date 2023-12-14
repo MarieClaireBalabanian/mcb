@@ -1,11 +1,12 @@
 <template>
-    <header class="global-header" :class="{open: open }" id="header">
+    <header class="global-header" :class="{open: open, 'full-nav': 
+    hasScrolled }" id="header">
         <div class="container">
             <GlobalFocusTrap :enabled="open" class="trap-wrapper">
-                <nav class="items-container" @keyup.esc="closeNav" aria-label="Main N avigation">
-                    <router-link to="/" class="logo" @click.prevent="scroll('top')" aria-label="MCB Homepage">
+                <nav class="items-container" @keyup.esc="closeNav" aria-label="Main Navigation">
+                    <router-link to="/" class="logo" @click.prevent="scroll('top')">
                         <span>MCB</span>
-                    </router-link>
+                     </router-link>
 
                     <div class="button-wrapper">
                         <button id="menu-toggle" aria-haspopup="true" class="hamburger" ref="hamburger"
@@ -21,17 +22,13 @@
                                     stroke-linecap="round" />
                             </svg>
                         </button>
-                        <!-- <transition name="radiate">
+                        <transition name="radiate">
                             <div class="circle" :class="{ 'show' : open, 'hide': !open }"></div>
-                        </transition> -->
+                        </transition>
                     </div>
 
-                    
                     <transition name="showItems">
-                        <div class="bg fixed" v-show="open"></div>
-                    </transition>
-                    
-                        <div class="items-wrapper fixed" v-show="open">
+                        <div class="items-wrapper" v-show="open">
                             <div class="container">
                                 <div class="inner-menu" tabindex="-1" id="inner-menu" aria-label="Expanded Navigation">
                                     <ul class="items">
@@ -45,7 +42,7 @@
                                 </div>
                             </div>
                         </div>
-                   
+                    </transition>
                 </nav>
             </GlobalFocusTrap>
         </div>
@@ -54,45 +51,45 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, nextTick } from 'vue'
-import {useRoute} from 'vue-router'
-
-const route = useRoute();
-
+    import { ref, reactive, computed, toRefs, onMounted, watch, nextTick  } from 'vue'
     import { scrollTo } from '../../composables/scrollTo.js'
+    import { useRoute } from 'vue-router'
+    const route = useRoute()
 
-    const open = ref(false)
+    import { useWindowStore } from '@/stores/window';
+    const windowStore = useWindowStore();
+
+    const scrollTop = computed(() => {
+        return windowStore.scrollTop;
+    });
+
+    const hasScrolled = computed(() => {
+        if (route.path === '/') {
+            return scrollTop?.value > window.innerHeight * 3; // try subtrating the height of WORK
+        }
+        return true
+    })
 
     const menu = [
         { title: 'Work', slug: '/work' },
         { title: 'About', slug: '/about' },
+        { title: 'Contact', slug: '/contact' },
     ]
 
-    const hamburgerSR = computed(() => {
-        return open.value ? "Close Navigation" : "Open Navigation";
-    })
-
-
-    watch(
-    () => route.path,
-    async (to) => {
-      closeNav()
-    },
-    { deep: true }
-  );
-
+    const open = ref(false);
 
     const toggleNav = () => {
-        if (open.value) {
-            closeNav();
-        } else {
-            open.value = true;
-            nextTick(() => {
-                document.body.style.overflow = "hidden";
-                let focus = document.getElementById("inner-menu");
-                focus.focus();
-            });
-        }
+        if (open.value) closeNav();
+        else openNav();
+    }
+
+    const openNav = () => {
+        open.value = true;
+        nextTick(() => {
+            document.body.style.overflow = "hidden";
+            const focus = document.getElementById("inner-menu");
+            focus.focus();
+        });
     }
 
     const closeNav = () => {
@@ -102,33 +99,32 @@ const route = useRoute();
 
     const scroll = (id) => {
         const anim = open.value ? 'instant' : 'smooth';
-        if (open.value)  closeNav();
+        if (open.value) closeNav();
         scrollTo(id, anim);
     }
 
     const skipToContent = () => {
         const anchor = document.getElementById('main');
-        if (anchor) {
-            anchor.focus();
-        }
+        anchor.focus();
     };
+
+    const hamburgerSR = computed(() => {
+        return open.value ? "Close Navigation" : "Open Navigation";
+    })
 
 </script>
 
 <style lang="scss">
-    $header-height: 60px;
-
     .global-header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
-        z-index: 99998;
+        z-index: 999;
         transition: 300ms ease;
         transform: translateY(-100%);
         opacity: 0;
-        animation: .6s header-show 2s forwards ease;
-        background: rgba(white, .96);
+        animation: .6s header-show .5s forwards ease;
 
         >.container {
             height: $header-height;
@@ -148,6 +144,7 @@ const route = useRoute();
             height: 22px;
             width: 22px;
             margin-top: 5px;
+            display: none;
         }
 
         .hamburger {
@@ -172,7 +169,7 @@ const route = useRoute();
 
         .circle {
             $pad: 20px;
-            
+
             height: 300vmax;
             width: 300vmax;
             display: block;
@@ -189,8 +186,8 @@ const route = useRoute();
                 left: calc(100vw - 40px - 11px);
             }
 
-            @media (min-width: 1200px) {
-                left: calc(50% + 1200px/2 - 40px - 11px);
+            @media (min-width: $max-container) {
+                left: calc(50% + calc($max-container/2) - 40px - 11px);
             }
 
             &.hide {
@@ -220,16 +217,13 @@ const route = useRoute();
             padding-top: 15px;
         }
 
-        .fixed {
+        .items-wrapper {
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             height: 100vh;
-        }
-
-        .items-wrapper {
             overflow: auto;
             color: $white;
             padding-top: $header-height;
@@ -248,15 +242,6 @@ const route = useRoute();
                 margin-bottom: 2em;
             }
         }
-
-
-
-
-            .bg {
-                background: black;
-                    /* opacity: 0;
-                    transition: .4s ease; */
-            }
 
 
         &.open {
@@ -286,36 +271,34 @@ const route = useRoute();
                     }
                 }
             }
+        }
 
-            /* .bg {
-                    transform: scaleX(1);
-                    opacity: 1;
-                } */
+        &.full-nav {
+            background: $white;
+            .button-wrapper {
+                display: block;
+            }
         }
 
         .showItems-enter-active {
-            transition: transform .4s ease-out, opacity .2s ease-out;
+            transition: transform .4s ease-out .65s, opacity .6s ease-out .69s;
         }
 
         .showItems-leave-active {
-            transition: transform .3s ease-out, opacity .5s ease-out;
-        }
-        
-        .showItems-enter-from {
-            /* opacity: 0; */
-            transform: scale(0, 1);
+            transition: .2s ease-out;
         }
 
+        .showItems-enter-from,
         .showItems-leave-to {
-            /* opacity: 0; */
-            transform: scale(0, 1);
-        }
-        .showItems-enter-to, .showItems-leave {
-            opacity: 1;
-            transform: scale(1);
+            opacity: 0;
+            transform: translate3d(0, 200px, 0);
         }
 
-      
+        .showItems-enter-to,
+        .showItems-leave {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
 
         @keyframes header-show {
             100% {

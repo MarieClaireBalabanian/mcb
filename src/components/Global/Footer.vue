@@ -2,7 +2,7 @@
 <footer>
 
        <div class="container text-center">
-        <p>&copy; {{ year }} Marie-Claire Balabanian</p>
+        <p class="paragraph">&copy; {{ year }} Marie-Claire Balabanian</p>
        </div>
 
 </footer>
@@ -16,8 +16,6 @@
 
 <style lang="scss">
     footer {
-        background: $black;
-        padding: 30px 0;
-        color: $white;
+        padding: 40px 0;
     }
 </style>

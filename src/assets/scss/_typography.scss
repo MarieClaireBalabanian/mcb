@@ -8,21 +8,31 @@ body {
 }
 
 
-.h1, .h2, .h2-stroke, .h3, .h4 {
-}
+
 .h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: .1rem;
+  @media (min-width: 1024px) {
+    font-size: 6rem;
+  }
+}
+
+.h2-large {
+  font-size: 2.5rem;
   font-weight: 500;
   letter-spacing: .1rem;
   @media (min-width: 1024px) {
     font-size: 4rem;
   }
 }
+
 .h2 {
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-family: $title;
   @media (min-width: 1024px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -53,14 +63,36 @@ body {
 .h3 {
   font-size: 1.4rem;
   @media (min-width: 1024px) {
-  
+    font-size: 1.6rem;
   }
+}
 
+.h4 {
+  font-size: 1.4rem;
+  @media (min-width: 1024px) {
+    font-size: 1.6rem;
+  }
+}
+
+.h5 {
+  font-size: 1.2rem;
+  @media (min-width: 1024px) {
+    font-size: 1.2rem;
+  }
 }
 
 .paragraph {
-  font-size: 1rem;
-  line-height: 1.7rem;
+  font-size: 1.1rem;
+  line-height: 1.7em;
+
+  p + p {
+    margin-top: 1.5rem;
+  }
+}
+
+.paragraph-small {
+  font-size: .9rem;
+  line-height: 1.6em;
 }
 
 .formatted {
@@ -91,8 +123,8 @@ body {
   }
 }
 
-.text-blue {
-  color: $prussian-blue;
+.text-turquoise {
+  color: $turquoise;
 }
 .text-white {
   color: $white;
@@ -105,4 +137,12 @@ body {
 .bold {
   font-weight: 700;
   letter-spacing: .03em;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.rubik {
+  font-family: $rubik;
 }
