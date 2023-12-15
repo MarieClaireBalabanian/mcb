@@ -1,14 +1,6 @@
 <template>
     <section class="block-hero" ref="blockRef" :style="`--progress: ${progress};`">
         <div class="shapes absolute-cover flex-align-center wrap">
-            <div class="container">
-                <div class="global-image" :style="`opacity: ${progress};`">
-                    <img src="/img/mc.jpeg" alt="Me admiring Deception Pass State Park" />
-                </div>
-                <h1 class="h1 heading text-center mb-40">Marie-Claire Balabanian</h1>
-                <h2 class="h2 heading text-right mb-40"><span>Web Developer</span></h2>
-            </div>
-
             <nav class="container">
                 <ul class="items flex-align-center">
                     <li v-for="(item, index) in menu" :key="`nav-${index}`">
@@ -19,6 +11,15 @@
                     </li>
                 </ul>
             </nav>
+            <div class="container">
+                <div class="global-image" :style="`opacity: ${progress};`">
+                    <img src="/img/mc.jpeg" alt="Me admiring Deception Pass State Park" />
+                </div>
+                <h1 class="h1 heading text-center mb-40">Marie-Claire Balabanian</h1>
+                <h2 class="h2 heading text-right mb-40"><span>Web Developer</span></h2>
+            </div>
+
+            
         </div>
         <div class="spacer"></div>
     </section>
@@ -127,7 +128,7 @@
        }
         .h1 {
             /* animation: grow 1s forwards; */
-            padding-top: clamp(calc($header_height + 30px), 6vh, 6vh);
+           
             /* opacity: 0; */
             &.show {
                 opacity: 1;
@@ -160,7 +161,7 @@
             z-index: -1;
             width: 70vw;
             filter: grayscale(100%);
-            background: rgba($white, .67);
+            background: rgba($white, .75);
             transform: translateX(calc(20vw * var(--progress)));
             img {
                 mix-blend-mode: screen;
@@ -168,12 +169,13 @@
         }
 
         .spacer {
-            height: 400vh;
+            height: 200vh;
         }
 
         nav {
-            padding-bottom: calc($header_height/2);
-            align-self: flex-end;
+            /* padding-bottom: calc($header_height/2); */
+            /* align-self: flex-end; */
+            padding-top: clamp(calc($header_height + 30px), 6vh, 6vh);
             transform: translateX(-3%);
 
         }
