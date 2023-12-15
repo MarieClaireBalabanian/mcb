@@ -1,28 +1,45 @@
 <template>
     <section class="block-hero" ref="blockRef" :style="`--progress: ${progress};`">
-        <div class="shapes absolute-cover">
-            <h1 class="h1 heading" :class="{ hide: progress >= .4}">
-                <!-- <div class="waviy">
-                    <span v-for="(letter, index) in first" :style="`--i: ${index};`">{{ letter }}</span>
-                </div> -->
-                Marie-Claire<br>Balabanian
-            </h1>
-            <h2 class="h2 heading" :class="{ show: progress >= .4}">Web Developer</h2>
+        <div class="shapes absolute-cover flex-align-center wrap">
+            <div class="container">
+                <div class="global-image" :style="`opacity: ${progress};`">
+                    <img src="/img/mc.jpeg" alt="Me admiring Deception Pass State Park" />
+                </div>
+                <h1 class="h1 heading text-center mb-40">Marie-Claire Balabanian</h1>
+                <h2 class="h2 heading text-right mb-40"><span>Web Developer</span></h2>
+            </div>
+
+            <nav class="container">
+                <ul class="items flex-align-center">
+                    <li v-for="(item, index) in menu" :key="`nav-${index}`">
+                        <a  :style="`opacity: ${progress};`" @click.prevent="scroll(item.slug)" :href="`#${item.slug}`"
+                            ref="topLevel">
+                            {{ item.title }}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
         <div class="spacer"></div>
     </section>
 </template>
 
 <script setup>
-    import { ref, reactive, computed, toRefs, onMounted, watch } from 'vue'
+    import { ref, computed, toRefs, onMounted, watch } from 'vue'
+    import { scrollTo } from '../../composables/scrollTo.js'
+
     import { useWindowStore } from '@/stores/window';
     const windowStore = useWindowStore();
-
-    const first = ["M", "a", "r", "i", "e", "-", "C", "l", "a", "i", "r", "e"]
 
     const boundsTop = ref(Infinity);
     const active = ref(false);
     const blockRef = ref(null);
+
+    const menu = [
+        { title: 'Work', slug: 'work' },
+        { title: 'About', slug: 'about' },
+        { title: 'Contact', slug: 'contact' },
+    ]
 
     const scrollTop = computed(() => {
         return windowStore.scrollTop;
@@ -67,6 +84,11 @@
             boundsTop.value = bounds.top;
         }
     };
+    const scroll = (id) => {
+        const anim = open.value ? 'instant' : 'smooth';
+        if (open.value) closeNav();
+        scrollTo(id, anim);
+    }
 
     onMounted(() => {
         initObserver();
@@ -79,25 +101,13 @@
     .block-hero {
         position: relative;
         min-height: 100vh;
-        background: black;
+        /* background: black; */
 
         .shapes {
-            position: absolute;
-            height: 100vh;
+            min-height: 100vh;
             width: 100vw;
             z-index: 1;
             position: sticky;
-
-            &::before,
-            &::after {
-                position: absolute;
-                display: inline-block;
-                content: '';
-                background: white;
-                width: 100%;
-                top: 0;
-                height: 100%;
-            }
 
             &::before {
                 left: 0;
@@ -112,79 +122,80 @@
             }
         }
 
-        .heading {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-            width: 100%;
-            text-align: center;
-            transition: .5s ease;
-            z-index: 2;
-        }
-
+       .heading {
+        /* transition: .6s ease; */
+       }
         .h1 {
             /* animation: grow 1s forwards; */
-
-            &.hide {
-                opacity: 0;
-                transform: translateY(calc(-50% - 100px));
+            padding-top: clamp(calc($header_height + 30px), 6vh, 6vh);
+            /* opacity: 0; */
+            &.show {
+                opacity: 1;
+                /* transform: translateY(calc(-50% - 100px)); */
             }
         }
 
-        .h2 {
-            color: white;
-            opacity: 0;
-            transform: translateY(calc(-50% + 100px));
+        .h2{
+            /* color: white; */
+            /* opacity: 0; */
+            /* transform: translateY(calc(50px)); */
+            transform: translateX(0);
+            span  {
+                display: block;
+                transform: translateX(calc(-30vw * var(--progress)));
+            }
 
             &.show {
                 opacity: 1;
-                transform: translateY(-50%);
+                transform: translateY(0);
+            }
+        }
+
+        .global-image {
+            position: absolute;
+            height: 0;
+            padding-top: clamp(300px, 100%, 70vh);
+            top: calc($header_height);
+            left: -20vw;
+            z-index: -1;
+            width: 70vw;
+            filter: grayscale(100%);
+            background: rgba($white, .67);
+            transform: translateX(calc(20vw * var(--progress)));
+            img {
+                mix-blend-mode: screen;
             }
         }
 
         .spacer {
-            height: 200vh;
-            position: relative;
-            z-index: 3;
+            height: 400vh;
         }
 
-        @keyframes grow {
-            0% {
-                clip-path: polygon(0 0, 100% 0%, 100% 2%, 0 2%);
+        nav {
+            padding-bottom: calc($header_height/2);
+            align-self: flex-end;
+            transform: translateX(-3%);
+
+        }
+
+        ul {
+            width: 100%;
+            justify-content: center;
+            transform: translateX(calc(3% * var(--progress)));
+
+        }
+
+        li {
+            font-size: 1.1rem;
+            letter-spacing: .1rem;
+            font-family: $rubik;
+            + li {
+                margin-left: 3em;
             }
-
-            100% {
-                clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-            }
-        }
-
-
-        .waviy {
-            position: relative;
-        }
-
-        .waviy span {
-            display: inline-block;
-            animation: flip .5s forwards ease;
-            animation-delay: calc(.2s * var(--i));
-            transform-origin: left top;
-            transform: rotateX(-180deg);
-            opacity: 0;
-            overflow: hidden;
-
-        }
-
-        @keyframes flip {
-
-            0% {
-                transform: rotateX(-180deg) translateY(100px) skew(-.02turn, 0);
-                opacty: 0;
-            }
-           
-            100% {
-                transform: rotateX(0) skew(0) translateY(0);
-                opacity: 1;
+            a {
+                &:focus {
+                    opacity: 1 !important;
+                }
             }
         }
     }

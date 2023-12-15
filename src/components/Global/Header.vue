@@ -120,6 +120,7 @@
         transition: 300ms ease;
         transform: translateY(-100%);
         opacity: 0;
+        background: $white;
         animation: .6s header-show .5s forwards ease;
 
         >.container {

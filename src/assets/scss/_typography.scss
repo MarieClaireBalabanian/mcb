@@ -10,13 +10,13 @@ body {
 
 
 .h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: .1rem;
   font-family: $syne;
   @media (min-width: 1024px) {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 }
 .h2 {

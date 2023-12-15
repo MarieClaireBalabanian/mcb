@@ -129,6 +129,15 @@ $header-height: 60px;
     display: block;
     position: relative;
 
+    &.contain {
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: center bottom;
+        }
+    }
+
     &:not(.original) {
         img {
             position: absolute;
@@ -163,4 +172,19 @@ $header-height: 60px;
     img {
         display: block;
     }
+}
+
+
+
+a,
+button,
+input,
+textarea,
+select {
+  &:focus {
+    outline-color: #5395ff;
+    outline-offset: 0;
+    outline-style: auto;
+    outline-width: 2px;
+  }
 }

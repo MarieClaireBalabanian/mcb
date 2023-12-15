@@ -57,12 +57,20 @@
   #work, #about {
     position: relative;
   }
+
+  #work {
+    
+    margin-top: 150px;
+    
+
+  }
   .work-header {
+
     letter-spacing: 0;
     position: absolute;
     top: 0;
     right: 0;
-  z-index: 4;
+    z-index: 4;
     transform: translateY(calc(-100% - -.26em));
   }
 </style>
