@@ -8,7 +8,7 @@
                     <h4 class="h3 mb-20" v-if="project.subtitle">{{ project.subtitle }}</h4>
                     <div class="paragraph mb-20" v-if="project.description" v-html="project.description"></div>
                     <div class="actions" v-if="isDesktop && alignment === 'image-right'">
-                        <GlobalModal :project="project"/>
+                        <GlobalModal :project="project" />
                     </div>
                 </div>
                 <div v-if="images" class="translates image-wrapper grid grid-2" :class="imageTransition">
@@ -19,7 +19,7 @@
                     <h4 class="h3 mb-20" v-if="project.subtitle">{{ project.subtitle }}</h4>
                     <div class="paragraph mb-20" v-if="project.description" v-html="project.description"></div>
                     <div class="actions" v-if="(isDesktop && alignment !== 'image-right') || !isDesktop">
-                        <GlobalModal :project="project"/>
+                        <GlobalModal :project="project" />
                     </div>
                 </div>
             </div>
@@ -130,11 +130,21 @@
             position: relative;
             z-index: 2;
 
-            .paragraph {
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
-                overflow: hidden;
+            .paragraph p {
+                &:first-child {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    text-align: left;
+                }
+
+                &:not(:first-child) {
+                    display: none;
+                }
+                
             }
         }
 
@@ -148,10 +158,9 @@
             .content {
                 display: flex;
                 position: relative;
-                padding: 20px 0 0 0;
                 align-items: center;
                 overflow: hidden;
-
+ 
             }
 
             .image-wrapper {

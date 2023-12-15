@@ -41,6 +41,7 @@
   };
   const resize = () => {
       windowStore.isDesktop = window.innerWidth >= 768;
+      windowStore.windowHeight = window.innerHeight;
   };
   onMounted(() => {
       scroll();

@@ -1,23 +1,24 @@
 <template>
-    <section class="block-hero" ref="blockRef" :style="`--progress: ${progress};`">
-        <div class="shapes absolute-cover flex-align-center wrap">
+    <section class="block-hero" ref="blockRef" :style="`--progress: ${progress}; min-height: 100vh;`">
+        <div class="shapes absolute-cover flex-align-center wrap" :style="`min-height: 100vh;`">
+            
+            <div class="container">
+                <div class="global-image" :style="`opacity: ${progress};`">
+                    <img src="/img/mc.jpeg" alt="Me admiring Deception Pass State Park" />
+                </div>
+                <h1 class="h1 heading text-center mb-40">Marie-Claire Balabanian</h1>
+                <h2 class="h2 heading text-right mb-40">Web Developer</h2>
+            </div>
             <nav class="container">
                 <ul class="items flex-align-center">
                     <li v-for="(item, index) in menu" :key="`nav-${index}`">
-                        <a  :style="`opacity: ${progress};`" @click.prevent="scroll(item.slug)" :href="`#${item.slug}`"
+                        <a  @click.prevent="scroll(item.slug)" :href="`#${item.slug}`"
                             ref="topLevel">
                             {{ item.title }}
                         </a>
                     </li>
                 </ul>
             </nav>
-            <div class="container">
-                <div class="global-image" :style="`opacity: ${progress};`">
-                    <img src="/img/mc.jpeg" alt="Me admiring Deception Pass State Park" />
-                </div>
-                <h1 class="h1 heading text-center mb-40">Marie-Claire Balabanian</h1>
-                <h2 class="h2 heading text-right mb-40"><span>Web Developer</span></h2>
-            </div>
 
             
         </div>
@@ -46,6 +47,10 @@
         return windowStore.scrollTop;
     });
 
+    const windowHeight = computed(() => {
+        return windowStore.windowHeight;
+    })
+
     watch(scrollTop, (newScrollTop) => {
         updateProgress();
     });
@@ -59,7 +64,7 @@
 
     const opacity = computed(() => {
         let op, cutOff;
-        cutOff = window.innerHeight / 3;
+        cutOff = windowHeight.value / 3;
         const progress = cutOff / boundsTop.value;
 
         if (isNaN(progress)) return 0;
@@ -101,11 +106,9 @@
 <style lang="scss">
     .block-hero {
         position: relative;
-        min-height: 100vh;
         /* background: black; */
 
         .shapes {
-            min-height: 100vh;
             width: 100vw;
             z-index: 1;
             position: sticky;
@@ -128,7 +131,8 @@
        }
         .h1 {
             /* animation: grow 1s forwards; */
-           
+            padding-top: clamp(calc($header_height + 30px), 6vh, 6vh);
+
             /* opacity: 0; */
             &.show {
                 opacity: 1;
@@ -140,11 +144,9 @@
             /* color: white; */
             /* opacity: 0; */
             /* transform: translateY(calc(50px)); */
-            transform: translateX(0);
-            span  {
-                display: block;
-                transform: translateX(calc(-30vw * var(--progress)));
-            }
+            $tr: calc(-30vw * var(--progress));
+            transform: translate3d($tr, 0, 0);
+            will-change: transform;
 
             &.show {
                 opacity: 1;
@@ -162,7 +164,9 @@
             width: 70vw;
             filter: grayscale(100%);
             background: rgba($white, .75);
-            transform: translateX(calc(20vw * var(--progress)));
+            transform: translate3d(calc(20vw * var(--progress)), 0, 0);
+            will-change: transform;
+
             img {
                 mix-blend-mode: screen;
             }
@@ -173,17 +177,16 @@
         }
 
         nav {
-            /* padding-bottom: calc($header_height/2); */
-            /* align-self: flex-end; */
-            padding-top: clamp(calc($header_height + 30px), 6vh, 6vh);
-            transform: translateX(-3%);
+            padding-bottom: calc($header_height/1);
+            align-self: flex-end; 
+            /* transform: translateX(-3%); */
 
         }
 
         ul {
             width: 100%;
             justify-content: center;
-            transform: translateX(calc(3% * var(--progress)));
+            /* transform: translateX(calc(3% * var(--progress))); */
 
         }
 

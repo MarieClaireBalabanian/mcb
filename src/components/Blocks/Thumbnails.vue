@@ -7,7 +7,7 @@
                     <div class="copy text-center">
                         <h3 class="h3 mb-20">{{ project.title }}</h3>
                         <div class="actions">
-                            <router-link :to="`/work/${project.slug}`" class="text-link" target="_blank" rel="noopener noreferrer">Learn More &rarr;</router-link>
+                            <!-- <router-link :to="`/work/${project.slug}`" class="text-link" target="_blank" rel="noopener noreferrer">Learn More &rarr;</router-link> -->
                         </div>
                     </div>
                 </li>
