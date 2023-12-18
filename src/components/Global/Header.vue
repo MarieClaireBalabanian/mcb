@@ -1,6 +1,5 @@
 <template>
-    <header class="global-header" :class="{open: open, 'full-nav': 
-    hasScrolled }" id="header">
+    <header class="global-header" :class="{open: open }" id="header">
         <div class="container">
             <GlobalFocusTrap :enabled="open" class="trap-wrapper">
                 <nav class="items-container" @keyup.esc="closeNav" aria-label="Main Navigation">
@@ -141,7 +140,6 @@
             height: 22px;
             width: 22px;
             margin-top: 5px;
-            display: none;
         }
 
         .hamburger {

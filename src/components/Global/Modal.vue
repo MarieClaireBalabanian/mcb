@@ -4,19 +4,22 @@
             ref="triggerRef" 
             @click="open = true"
             :aria-label="`Learn more about ${project.title}`">
-            <span class="brackets h5" aria-hidden="true">[</span>
             Learn More
-            <span class="brackets h5" aria-hidden="true">]</span>
         </button>
 
         <Teleport to="body">
             <transition name="modalTransition">
                 <div v-if="open" class="modal" @keyup.esc="open = false" @click.self="open = false">
                     <GlobalFocusTrap class="focus-trap" :enabled="open">
-                        <div class="container">
-                            <div v-if="project" class="modal-content" role="dialog" aria-modal="true" tabindex="-1" ref="modalRef"
+                            <div v-if="project" class="modal-content container" role="dialog" aria-modal="true" tabindex="-1" ref="modalRef"
                                 aria-labelledby="modal-title">
-                                <h2 class="h2 mb-40" id="modal-title">{{ project.title }}</h2>
+                                <button type="button button-red" class="close" @click.stop="open = false">
+                                    <span class="sr-only">Close Modal</span>
+                                </button>
+                                <div class="header mb-40">
+                                    <h2 class="h2" id="modal-title">{{ project.title }}</h2>
+
+                                </div>
 
                                 <div class="tech mb-40 flex-align-center wrap">
                                     <ul class=" text-list">
@@ -31,9 +34,6 @@
                                     <p class="paragraph mb-20"><u>ABOUT THE PROJECT:</u></p>
                                     <div class="paragraph" v-html="project.description"></div>
                                 </div>
-    
-                                <GlobalCarousel class="mb-80" :images="project.images" />
-
 
                                 <div class="video-container mb-80" v-if="project.video">
                                     <video playsinline muted loop controls>
@@ -41,14 +41,12 @@
                                     </video>
                                     <p class="paragraph">Short snippet of the presentation</p>
                                 </div>
+    
+                                <GlobalCarousel class="mb-80" :images="project.images" />
 
-                                <!-- <p class="paragraph">{{ project.body }}</p> -->
-                                <button type="button button-red" class="close" @click.stop="open = false">
-                                    <span class="sr-only">Close Modal</span>
-                                </button>
+                                
                                 <slot></slot>
                             </div>
-                        </div>
                     </GlobalFocusTrap>
                 </div>
             </transition>
@@ -94,7 +92,7 @@
 
 <style lang="scss" scoped>
     .modal {
-        background: rgba($black, 0.8);
+        background: $white;
         position: fixed;
         left: 0;
         top: 0;
@@ -107,8 +105,6 @@
 
         >.focus-trap {
             width: 100%;
-            margin: auto;
-            padding: 100px 0;
         }
 
 
@@ -129,11 +125,11 @@
                 background: $black;
                 content: '';
                 display: block;
-                height: 1px;
-                left: 2px;
+                height: 2px;
+                left: 0;
                 position: absolute;
                 top: 12px;
-                width: 20px;
+                width: 25px;
             }
 
             &::before {
@@ -147,10 +143,8 @@
             &:hover,
             &:focus {
                 border-radius: 2px;
-                background: $prussian-blue;
-
-                &::before,
-                &::after {
+                background: $red;
+                &::before, &::after {
                     background: $white;
                 }
             }
@@ -162,20 +156,24 @@
         }
 
         .modal-content {
-            background: $white;
-            max-width: 1200px;
             position: relative;
             width: 100%;
-            margin: auto;
-            padding: 10% 5%;
-            
+            padding-top: 100px;
+            padding-bottom: 100px;
+            max-width: 1000px;
         }
 
         video {
             width: 100%;
         }
 
-        .tech {
+        .h2 {
+            display: inline;
+            background: $black;
+            color: $white;
+            padding: 0 20px;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
         }
     }
 </style>

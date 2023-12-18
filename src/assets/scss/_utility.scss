@@ -72,9 +72,9 @@ $header-height: 60px;
     li {
         display: inline-block;
         position: relative;
-        color: $turquoise;
         font-family: 'Andale Mono';
         font-weight: 700;
+        color: $turquoise;
         @extend .paragraph;
     
         &:not(:last-child) {
@@ -85,8 +85,8 @@ $header-height: 60px;
                 content: '';
                 position: absolute;
                 background: $black;
-                width: .25rem;
-                height: .25rem;
+                width: .3em;
+                height: .3em;
                 border-radius: 50%;
                 top: 50%;
                 right: 0;

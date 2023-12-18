@@ -1,15 +1,13 @@
 <template>
     <section class="block-hero" ref="blockRef" :style="`--progress: ${progress}; min-height: 100vh;`">
-        <div class="shapes absolute-cover flex-align-center wrap" :style="`min-height: 100vh;`">
-            
-            <div class="container">
+        <div class="shapes absolute-cover flex-align-center wrap container" :style="`min-height: 100vh;`">
                 <div class="global-image" :style="`opacity: ${progress};`">
                     <img src="/img/mc.jpeg" alt="Me admiring Deception Pass State Park" />
                 </div>
-                <h1 class="h1 heading text-center mb-40">Marie-Claire Balabanian</h1>
-                <h2 class="h2 heading text-right mb-40">Web Developer</h2>
-            </div>
-            <nav class="container">
+                <h1 class="h1 heading text-center mb-40">
+                    <span>Marie-Claire</span><span>Balabanian</span></h1>
+                <h2 class="h2 heading text-right">Web Developer</h2>
+            <!-- <nav class="container">
                 <ul class="items flex-align-center">
                     <li v-for="(item, index) in menu" :key="`nav-${index}`">
                         <a  @click.prevent="scroll(item.slug)" :href="`#${item.slug}`"
@@ -18,9 +16,7 @@
                         </a>
                     </li>
                 </ul>
-            </nav>
-
-            
+            </nav> -->
         </div>
         <div class="spacer"></div>
     </section>
@@ -34,7 +30,6 @@
     const windowStore = useWindowStore();
 
     const boundsTop = ref(Infinity);
-    const active = ref(false);
     const blockRef = ref(null);
 
     const menu = [
@@ -64,31 +59,22 @@
 
     const opacity = computed(() => {
         let op, cutOff;
-        cutOff = windowHeight.value / 3;
+        cutOff = windowHeight.value / 5;
+
         const progress = cutOff / boundsTop.value;
 
-        if (isNaN(progress)) return 0;
+        console.log(progress)
+
+        if (isNaN(progress)) return .3;
+        if (progress < .3 && progress >= 0) return .3;
         if (progress > 1 || progress < 0) return 1;
 
         return progress;
     });
 
-
-    const initObserver = () => {
-        let observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                active.value = entry.isIntersecting;
-            });
-        });
-        observer.observe(blockRef.value);
-        observer.value = observer;
-    };
-
     const updateProgress = () => {
-        if (active.value) {
-            let bounds = blockRef.value.getBoundingClientRect();
-            boundsTop.value = bounds.top;
-        }
+        let bounds = blockRef.value.getBoundingClientRect();
+        boundsTop.value = bounds.top;
     };
     const scroll = (id) => {
         const anim = open.value ? 'instant' : 'smooth';
@@ -96,9 +82,6 @@
         scrollTo(id, anim);
     }
 
-    onMounted(() => {
-        initObserver();
-    });
 </script>
 
 
@@ -128,15 +111,27 @@
 
        .heading {
         /* transition: .6s ease; */
+        width: 100%;
        }
         .h1 {
             /* animation: grow 1s forwards; */
             padding-top: clamp(calc($header_height + 30px), 6vh, 6vh);
-
+            display: inline-block;
+            width: auto;
+            margin: 0 auto;
+            text-align: left;
             /* opacity: 0; */
             &.show {
                 opacity: 1;
                 /* transform: translateY(calc(-50% - 100px)); */
+            }
+            span {
+                display: block;
+                &:last-child {
+                    padding-left: 20vw;
+                    padding-top: .4em;
+                }
+                
             }
         }
 
@@ -158,10 +153,11 @@
             position: absolute;
             height: 0;
             padding-top: clamp(300px, 100%, 70vh);
-            top: calc($header_height);
+            bottom: $header_height;
             left: -20vw;
             z-index: -1;
-            width: 70vw;
+            width: 90vw;
+            max-width: 1200px;
             filter: grayscale(100%);
             background: rgba($white, .75);
             transform: translate3d(calc(20vw * var(--progress)), 0, 0);
@@ -173,21 +169,19 @@
         }
 
         .spacer {
-            height: 200vh;
+            height: 80vh;
         }
 
         nav {
             padding-bottom: calc($header_height/1);
             align-self: flex-end; 
             /* transform: translateX(-3%); */
-
         }
 
         ul {
             width: 100%;
             justify-content: center;
             /* transform: translateX(calc(3% * var(--progress))); */
-
         }
 
         li {
