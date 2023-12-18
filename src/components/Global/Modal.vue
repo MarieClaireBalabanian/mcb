@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="button button-red red" 
+        <button class="button button-turquoise red" 
             ref="triggerRef" 
             @click="open = true"
             :aria-label="`Learn more about ${project.title}`">
@@ -13,7 +13,7 @@
                     <GlobalFocusTrap class="focus-trap" :enabled="open">
                             <div v-if="project" class="modal-content container" role="dialog" aria-modal="true" tabindex="-1" ref="modalRef"
                                 aria-labelledby="modal-title">
-                                <button type="button button-red" class="close" @click.stop="open = false">
+                                <button type="button button-turquoise" class="close" @click.stop="open = false">
                                     <span class="sr-only">Close Modal</span>
                                 </button>
                                 <div class="header mb-40">
